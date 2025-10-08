@@ -4,6 +4,10 @@ Consider using [uv](https://docs.astral.sh/uv/).
 Download the demo file [here](https://www.hltv.org/matches/2385919/heroic-vs-3dmax-esl-pro-league-season-22-stage-1)
 ![alt text](docs/images/download-dem.png "Title")
 
+Only consider the `heroic-vs-3dmax-m1-dust2.dem` demo file. 
+
+To check that everything is working, do: `uv run main.py`. If it looks like the image below, you are ready to code!! 
+![Final output](./docs/images/final_output.png "WTF")
 
 # Mapping Fuction (Morten and Casper)
 A mapping function that takes an x- and a y-coordiante and outputs an integer id that corresponds to a zone we defined
