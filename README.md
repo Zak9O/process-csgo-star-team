@@ -14,6 +14,8 @@ A mapping function that takes an x- and a y-coordiante and outputs an integer id
 ```python
 def coordinates_to_box(x: int, y: int) -> int
 ```
+We have rudely defined the following zones on the map
+![](./docs/images/map_boxes.png)
 # Compressed dataframe (William and Felipe)
 We want to compress the dataframe representing the game into a format we can convert into an XES log. The exact structure of the compressed dataframe will probably change, because we do not know what is required to convert the compressed dataframe into an XES log. Coordination between the compressed dataframe builders and the XES log converter creator is necessary
 Each entry in the compressed dataframe could contain the following features:
