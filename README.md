@@ -1,9 +1,16 @@
+# Make it work on my machine 
+Consider using [uv](https://docs.astral.sh/uv/). 
+
+Download the demo file [here](https://www.hltv.org/matches/2385919/heroic-vs-3dmax-esl-pro-league-season-22-stage-1)
+![alt text](docs/images/download-dem.png "Title")
+
+
 # Mapping Fuction (Morten and Casper)
 A mapping function that takes an x- and a y-coordiante and outputs an integer id that corresponds to a zone we defined
 ```python
 def coordinates_to_box(x: int, y: int) -> int
 ```
-# Compressed dataframe (William and Morten)
+# Compressed dataframe (William and Felipe)
 We want to compress the dataframe representing the game into a format we can convert into an XES log. The exact structure of the compressed dataframe will probably change, because we do not know what is required to convert the compressed dataframe into an XES log. Coordination between the compressed dataframe builders and the XES log converter creator is necessary
 A rude version of a compressed dataframe could looke like:
 ```
