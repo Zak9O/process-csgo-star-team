@@ -41,4 +41,4 @@ def getActivityLog(activities:list[str], df):
     return log_dict
 
 
-# print(getActivityLog(["is_alive", "last_place_name"]))
+# print(getActivityLog(["is_alive", "last_place_name"], df))
