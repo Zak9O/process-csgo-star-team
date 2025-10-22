@@ -9,20 +9,27 @@ import xml.etree.cElementTree as ET
 def creatXes(dict_log):
     event_log = EventLog()
     # implement way to split into rounds, where each round is a trace, currently everything is just one large trace
-    for _ in range(1):
-        trace = Trace()
-        for tick in dict_log:
-            for action in range(0,len(dict_log[tick])):
+    newtrace=False
+    trace = Trace()
+    for tick in dict_log:
 
-                event = Event()
-                event['user:playername'] = dict_log[tick][action][0]
-                event['concept:activity'] = dict_log[tick][action][1]
-                event['time:tick'] = tick
-                event['custom:change'] = dict_log[tick][action][2]  
-         
-                trace.append(event)
-     
-        event_log.append(trace)
+        for x in range(0,len(dict_log[tick])):
+            if dict_log[tick][x][1]=='is_alive' and dict_log[tick][x][2]==True:
+                newtrace=True
+                trace = Trace()
+                break
+
+        for action in range(0,len(dict_log[tick])):
+            event = Event()
+            event['user:playername'] = dict_log[tick][action][0]
+            event['concept:activity'] = dict_log[tick][action][1]
+            event['time:tick'] = tick
+            event['custom:change'] = dict_log[tick][action][2]  
+            trace.append(event)
+            
+        if newtrace==True:
+            event_log.append(trace)
+            newtrace=False
 
     # Specify the path to your output XES file
     output_xes_file = 'csgo_EventLog.xes'
