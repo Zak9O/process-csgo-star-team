@@ -1,4 +1,4 @@
-#field is a string that explains the activity we want to look at (for example last_place_name or is_alive)
+# field is a string that explains the activity we want to look at (for example last_place_name or is_alive)
 # this will look for a change in values, if a player is alive in 1 tick, and dead in another this will be noted in a dictionary
 import pm4py
 from pm4py.objects.log.obj import EventLog, Trace, Event
