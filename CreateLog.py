@@ -1,41 +1,21 @@
-# field is a string that explains the activity we want to look at (for example last_place_name or is_alive)
-# this will look for a change in values, if a player is alive in 1 tick, and dead in another this will be noted in a dictionary
-import pm4py
-from pm4py.objects.log.obj import EventLog, Trace, Event
-from datetime import datetime, timedelta
-import random
-import xml.etree.cElementTree as ET
+from demoparser2 import DemoParser
+parser = DemoParser("../heroic-vs-3dmax-m1-dust2.dem")
+ticks = parser.parse_ticks(["tick", "name", "is_alive", "team_name","bomb_exploded"])
 
-def creatXes(dict_log):
-    event_log = EventLog()
-    # implement way to split into rounds, where each round is a trace, currently everything is just one large trace
-    newtrace=False
-    trace = Trace()
-    for tick in dict_log:
+list_of_activities = ["name", "is_alive", "last_place_name"]
 
-        for x in range(0,len(dict_log[tick])):
-            if dict_log[tick][x][1]=='is_alive' and dict_log[tick][x][2]==True:
-                newtrace=True
-                trace = Trace()
-                break
+# print(ticks)
 
-        for action in range(0,len(dict_log[tick])):
-            event = Event()
-            event['user:playername'] = dict_log[tick][action][0]
-            event['concept:activity'] = dict_log[tick][action][1]
-            event['time:tick'] = tick
-            event['custom:change'] = dict_log[tick][action][2]  
-            trace.append(event)
-            
-        if newtrace==True:
-            event_log.append(trace)
-            newtrace=False
+# print(parser.list_game_events())
 
-    # Specify the path to your output XES file
-    output_xes_file = 'csgo_EventLog.xes'
-     
-    # Write the event log to the XES file
-    pm4py.write_xes(event_log, output_xes_file)
+#print(list(parser.columns.values))
+#print(list(ticks))
+
+# print(parser.parse_event("round_start"))
+# print(parser.parse_event("round_end"))
+
+
+
 
 
 def getActivityFromField(field:str, df):
@@ -76,10 +56,30 @@ def getActivityLog(activities:list[str], df):
                 else:
                     log_dict[tick].append((player, field, field_value))
 
-    return log_dict
+    return dict(sorted(log_dict.items()))
 
 
 
+# Returns a list of dictionaries, where each dictionary is the activity log for a round
+def getListOfActivitiesPerRound():
+    round_start = list(parser.parse_event("round_start")["tick"])
+    round_end = list(parser.parse_event("round_end")["tick"])
+
+    list_of_round_interval = []
+    for i in range(len(round_start)):
+        list_of_round_interval.append((round_start[i],round_end[i+1]))
+
+    list_of_dict = []    
+    for interval in list_of_round_interval:
+        start_tick = interval[0]
+        end_tick = interval[1]
+        
+        list_of_ticks_for_round_i = list(range(start_tick,end_tick+1))
+        round_i_df = parser.parse_ticks(list_of_activities, ticks = list_of_ticks_for_round_i)
+        activity_log_round_i = getActivityLog(list_of_activities, round_i_df)
+        list_of_dict.append(activity_log_round_i)
+        break
+
+    return list_of_dict
 
 
-# print(getActivityLog(["is_alive", "last_place_name"], df))

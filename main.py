@@ -1,3 +1,5 @@
+from CreateXESfile import creatXes
+from CreateLog import getListOfActivitiesPerRound
 from demoparser2 import DemoParser
 
 def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
@@ -30,6 +32,12 @@ def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
 
     print("Sampled positions:", len(sampled))
     return sampled
+
+#BigRedButton
+def getEventLog():
+    list_of_dictionaries = getListOfActivitiesPerRound()
+    creatXes(list_of_dictionaries)
+
 
 
 if __name__ == "__main__":
