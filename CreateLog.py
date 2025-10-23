@@ -78,7 +78,6 @@ def getListOfActivitiesPerRound():
         round_i_df = parser.parse_ticks(list_of_activities, ticks = list_of_ticks_for_round_i)
         activity_log_round_i = getActivityLog(list_of_activities, round_i_df)
         list_of_dict.append(activity_log_round_i)
-        break
 
     return list_of_dict
 
