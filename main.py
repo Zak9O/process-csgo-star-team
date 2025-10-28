@@ -41,7 +41,7 @@ def getEventLog():
 
 
 if __name__ == "__main__":
-    demo_path = "./heroic-vs-3dmax-m1-dust2.dem"
+    demo_path = "../heroic-vs-3dmax-m1-dust2.dem"
     df = sample_positions_every_second(demo_path, ticks_per_sec=64)
 
     # Choose the columns you want in the CSV
@@ -49,3 +49,6 @@ if __name__ == "__main__":
     cols = [c for c in cols if c in df.columns]  # keep only present columns
     df[cols].to_csv("round1_positions_with_place.csv", index=False)
     print("✅ Saved round1_positions_with_place.csv")
+    getEventLog()
+    print("done, log created")
+

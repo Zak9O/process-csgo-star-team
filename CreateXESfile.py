@@ -11,9 +11,9 @@ def creatXes(rounds):
     event_log = EventLog()
     # implement way to split into rounds, where each round is a trace, currently everything is just one large trace
 
-    for round, i in enumerate(rounds):
+    for i, round in enumerate(rounds):
         trace = Trace()
-        trace["round"] = i+1
+        trace.attributes["round"] = i+1
 
 
         for tick in round:
