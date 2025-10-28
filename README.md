@@ -62,7 +62,7 @@ Given a compressed dataframe as defined in the previous section, create an XES l
 
 you need to install java sdk 11 for it to work
 
-download rum here: https://rulemining.org/ 
+download rum here: https://rulemining.org/
 
 extract the folder whereever you want, that folder contains the SDK for java install whetever fits your IOS
 
