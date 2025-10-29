@@ -1,20 +1,37 @@
+# Goals
+**I have manipulated the raw event log to perform certain analyses** ✅  
+Quite a lot actually
+
+**I have used and reported on state-of-the-art of available technologies, both commercial products and open source tools** 🟨  
+We are all using RUM which is open source. 
+We should construct some petri nets using disco, so we also use commercial tools
+
+**I have performed some correct/coherent modelling of a process using a formal language to describe processes (e.g., Petri net)** 🟨  
+We are doing this at the moment and have something to show. 
+
+**I have answered domain related questions using the results of process mining** 🟥  
+
+**I have tested, discussed and compared different process mining algorithms in the context of the given problem (e.g., for the discovery, Inductive Miner vs Heuristics Miner)** 🟥  
+Note sure if RUM supports this. If it does not, we must talk to Andrea or construct some petri nets using disco.
+
+**I have discussed, interpreted and evaluated the outcomes of the process mining activity** 🟥  
+Can be done once we have some actual models
+
+**I have compared different process mining techniques (e.g., discovery, conformance) and discussed which to use to achieve my purposes** 🟥  
+We have not compared anything, but most likely conformance does not make sense, since there are no "illegal" ways of playing CSGO. We could, however, compare a the game play of a noob with a pro, and check the conformance
+
+**I have verified the correct behavior (e.g., using the “token game”) of a process represented in a formal language (e.g., Petri net) and investigated some of its basic properties (e.g., deadlock-free, bounded)** 🟥  
+Await finished model
+
 # What we focus on
-We follow Andre's lead and try to focus on the dynamic behavoir of a match (one round in a game). How does CT react on the actions of T and vice versa. To limit the scope of the assignment, we have decided to only focus on the map: `de_dust2`. 
+We follow Andre's lead and try to focus on the dynamic behavoir of a match (one round in a game). How does CT react on the actions of T and vice versa. To limit the scope of the assignment, we have decided to only focus on the map: `de_dust2`. We have also focus on some different processes to further limit the scope of a process. 
 
-An **event log** is defined as one game (typically 16 rounds)  
-A **case / trace** is defined as one round in a game (typically ends when all players in a team dies, the bomb explodes, or the bomb is diffused).
-
-We focus on the following events
-
-| Event                     | `concept:activity`-form | Note                                             |
-| ------------------------- | ----------------------- | ------------------------------------------------ |
-| A player dies             | `<team>_player_died`    |                                                  |
-| A player changes location | `<team>_<location>`     | `<location>` is the location a player entered    |
-| A round begins            | `round_begins`          |                                                  |
-| A team wins a round       | `<team>_wins`           | See [wiki](https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events?fbclid=IwY2xjawNuwTJleHRuA2FlbQIxMQABHkTxGy1beTsofy9TvuZJSDMHnX5b2POzrZxWSg_UfCJr3SBGt-2R1b_cm--i_aem_ERwLfzvmQOlyg1trMs9veQ#:~:text=round%20objective-,round_end,-Name%3A) for interesting info why they win |
- 
-Where 
-* `<team>: CT|T` is the team of the player 
+| Description | Start | Name |
+| ------ | --- | - |
+| A successful flashbang. A flashbang is considered successful if player A throws a flashbang, enemy player B is flashed, and then player A kills player B within a specific time limit  | When a flashbang is thrown    | When player B dies or after X ticks |
+| A team winning a round by ahnialating the enemy team | Round begins | team wins |
+| The terrorist that gets the first kill. Analyze his behavoir up untill he kills | When round begins | When first blood is drawn |
+| Characterize the process of a specific player, `faker`, that buys an awp and gets his first kill | Round begins |first blood is drawn |
 
 # Ideas for future work
 * Look at different games where we keep one team constant. 
@@ -43,7 +60,12 @@ If you get this, you most likely used the wrong Java to compile it. See the vide
 Download the demo file [here](https://www.hltv.org/matches/2385919/heroic-vs-3dmax-esl-pro-league-season-22-stage-1)
 ![](docs/images/download-dem.png)
 
-Only consider the `heroic-vs-3dmax-m1-dust2.dem` demo file, and put it in the base of the working tree of the project
+We have compiled a collection of Dust2 games featuring Heroic against different opponents.
+The files can be found as a Zip archive [here](https://dtudk-my.sharepoint.com/:u:/g/personal/s204152_dtu_dk/EWZ-9RMrr9JFkH3LVwG1LuQBfGzFUzO_d7X534ByVL6m5Q?e=7u4coO). \
+**DTU associated account required** \
+Or copying this link:   
+https://dtudk-my.sharepoint.com/:u:/g/personal/s204152_dtu_dk/EWZ-9RMrr9JFkH3LVwG1LuQBfGzFUzO_d7X534ByVL6m5Q?e=7u4coO
+
 
 ## If you use uv
 
