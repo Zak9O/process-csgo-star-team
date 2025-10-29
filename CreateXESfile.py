@@ -19,10 +19,10 @@ def creatXes(rounds):
         for tick in round:
             for activity in round[tick]:
                 event = Event()
-                event['concept:name'] = activity[0]
+                event['concept:name'] = activity[2]
                 event['concept:activity'] = activity[1]
                 event['time:tick'] = tick
-                event['custom:value'] = activity[2]  
+                event['custom:value'] = activity[0]  
                 trace.append(event)
             
         event_log.append(trace)
