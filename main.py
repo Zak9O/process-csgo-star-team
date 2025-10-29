@@ -41,7 +41,7 @@ def getEventLog():
 
 
 if __name__ == "__main__":
-    demo_path = "../heroic-vs-3dmax-m1-dust2.dem"
+    demo_path = "heroic-vs-3dmax-m1-dust2.dem"
     df = sample_positions_every_second(demo_path, ticks_per_sec=64)
 
     # Choose the columns you want in the CSV

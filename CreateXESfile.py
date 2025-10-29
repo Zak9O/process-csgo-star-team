@@ -19,7 +19,7 @@ def creatXes(rounds):
         for tick in round:
             for activity in round[tick]:
                 event = Event()
-                event['user:playername'] = activity[0]
+                event['concept:name'] = activity[0]
                 event['concept:activity'] = activity[1]
                 event['time:tick'] = tick
                 event['custom:value'] = activity[2]  

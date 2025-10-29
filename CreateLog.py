@@ -1,5 +1,5 @@
 from demoparser2 import DemoParser
-parser = DemoParser("../heroic-vs-3dmax-m1-dust2.dem")
+parser = DemoParser("heroic-vs-3dmax-m1-dust2.dem")
 ticks = parser.parse_ticks(["tick", "name", "is_alive", "team_name","bomb_exploded"])
 
 list_of_activities = ["name", "is_alive", "last_place_name"]
