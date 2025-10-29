@@ -52,12 +52,10 @@ def creatXes(
 
                 # REQUIRED / standard stuff RuM expects
                 ev["concept:name"] = field_value                 # activity label
-                ev["lifecycle:transition"] = "complete"         # generic lifecycle
-                ev["time:timestamp"] = timestamp                # actual datetime
 
                 # YOUR custom data
                 ev["time:tick"] = tick                          # raw game tick
-                ev["custom:value"] = field_value                # the value observed
+                # ev["custom:value"] = field_value                # the value observed
 
                 trace.append(ev)
 
