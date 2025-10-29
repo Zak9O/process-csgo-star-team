@@ -14,15 +14,21 @@ To check that everything is working, do: `uv run main.py`. If it looks like the 
 ![](./docs/images/final_output.png "WTF")
 
 # What we focus on
+We follow Andre's lead and try to focus on the dynamic behavoir of a match (one round in a game). How does CT react on the actions of T and vice versa. To limit the scope of the assignment, we have decided to only focus on the map: `de_dust2`. 
 
-We follow Andre's lead and try to focus on the dynamic behavoir of a match (one round in a game). How does CT react on the actions of T and vice versa. To limit the scope of the assignment, we have decided to only focus on the map: `de_dust2`. We therefore define a case in our process as one particular round.
+An **event log** is defined as one game (typically 16 rounds)  
+A **case / trace** is defined as one round in a game (typically ends when all players in a team dies, the bomb explodes, or the bomb is diffused).
 
-In our initial MVP, we only focus on two kinds of events:
+In our initial MVP, we only focus on two kinds of events in each case:
 
-* When a player dies
-* When a player changes zones.
+| Event                     | `concept:activity`-form |
+| ------------------------- | ----------------------- |
+| A player dies             | `<team>_player_died`    |
+| A player changes location | `<team>_<location>`     |
 
-Furthermore, following Andre's recommendation, we have decided to use declarative process mining.
+Where 
+* `<team>: CT|T` is the team of the player 
+* `<location>` is the location a player changed to
 
 ## Zones
 
