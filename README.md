@@ -21,14 +21,15 @@ A **case / trace** is defined as one round in a game (typically ends when all pl
 
 In our initial MVP, we only focus on two kinds of events in each case:
 
-| Event                     | `concept:activity`-form |
-| ------------------------- | ----------------------- |
-| A player dies             | `<team>_player_died`    |
-| A player changes location | `<team>_<location>`     |
+| Event                     | `concept:activity`-form | Note                                             |
+| ------------------------- | ----------------------- | ------------------------------------------------ |
+| A player dies             | `<team>_player_died`    |                                                  |
+| A player changes location | `<team>_<location>`     | `<location>` is the location a player entered    |
+| A round begins            | `round_begins`          |                                                  |
+| A team wins a round       | `<team>_wins`           |                                                  |
 
 Where 
 * `<team>: CT|T` is the team of the player 
-* `<location>` is the location a player changed to
 
 ## Zones
 
