@@ -10,11 +10,11 @@ import xml.etree.cElementTree as ET
 def creatXes(rounds):
     event_log = EventLog()
     # implement way to split into rounds, where each round is a trace, currently everything is just one large trace
-
+    event_log.attributes["concept:name"]= "csgo_demo_log"
     for i, round in enumerate(rounds):
         trace = Trace()
         trace.attributes["round"] = i+1
-
+        trace.attributes["concept:name"] = f"round_{i+1}"
 
         for tick in round:
             for activity in round[tick]:

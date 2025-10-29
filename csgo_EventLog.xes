@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<string key="concept:name" value="csgo_demo_log" />
 	<trace>
 		<int key="round" value="1" />
+		<string key="concept:name" value="round_0" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -563,6 +565,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="2" />
+		<string key="concept:name" value="round_1" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -1508,6 +1511,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="3" />
+		<string key="concept:name" value="round_2" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -2447,6 +2451,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="4" />
+		<string key="concept:name" value="round_3" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -3398,6 +3403,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="5" />
+		<string key="concept:name" value="round_4" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -4097,6 +4103,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="6" />
+		<string key="concept:name" value="round_5" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -4850,6 +4857,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="7" />
+		<string key="concept:name" value="round_6" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -5735,6 +5743,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="8" />
+		<string key="concept:name" value="round_7" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -6542,6 +6551,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="9" />
+		<string key="concept:name" value="round_8" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -7547,6 +7557,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="10" />
+		<string key="concept:name" value="round_9" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -8114,6 +8125,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="11" />
+		<string key="concept:name" value="round_10" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -8867,6 +8879,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="12" />
+		<string key="concept:name" value="round_11" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -9572,6 +9585,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="13" />
+		<string key="concept:name" value="round_12" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -10295,6 +10309,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="14" />
+		<string key="concept:name" value="round_13" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -11198,6 +11213,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="15" />
+		<string key="concept:name" value="round_14" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -12041,6 +12057,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="16" />
+		<string key="concept:name" value="round_15" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -12914,6 +12931,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="17" />
+		<string key="concept:name" value="round_16" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -13973,6 +13991,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="18" />
+		<string key="concept:name" value="round_17" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -14480,6 +14499,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="19" />
+		<string key="concept:name" value="round_18" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -15077,6 +15097,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="20" />
+		<string key="concept:name" value="round_19" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
@@ -15638,6 +15659,7 @@
 	</trace>
 	<trace>
 		<int key="round" value="21" />
+		<string key="concept:name" value="round_20" />
 		<event>
 			<string key="user:playername" value="bodyy" />
 			<string key="concept:activity" value="name" />
