@@ -36,8 +36,8 @@ def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
 #BigRedButton
 def getEventLog():
     print("Creating log...")
-    list_of_dictionaries = getListOfActivitiesPerRound()
-    creatXes(list_of_dictionaries)
+    rounds = getListOfActivitiesPerRound(max_rounds=3)
+    event_log = creatXes(rounds)
     print("Done. Log created succesfully")
 
 

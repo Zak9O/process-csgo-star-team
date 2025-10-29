@@ -19,15 +19,14 @@ We follow Andre's lead and try to focus on the dynamic behavoir of a match (one 
 
 In our initial MVP, we only focus on two kinds of events:
 
-* When a player dies
+* When a player die
 * When a player changes zones.
 
 Furthermore, following Andre's recommendation, we have decided to use declarative process mining.
 
 ## Zones
 
-We have rudely defined the following zones on the map. The zones are subject to change in the future
-![](./docs/images/map_boxes.png)
+We have rudely defined the following zones on the map. The zones are subject to change in the future -> this has been 
 
 # Tasks
 
@@ -66,10 +65,16 @@ download rum here: https://rulemining.org/
 
 extract the folder whereever you want, that folder contains the SDK for java install whetever fits your IOS
 
-open that folder in command prompt and run the following command
+open the RuM folder in command prompt and run the following command
 
 "C:\Program Files\Java\jdk-11\bin\java.exe" -Djava.library.path=. -jar rum-0.7.2.jar
 
 If you get this, you most likely used the wrong Java to compile it. See the video tutorial on RuM, its good enough to understand it
 
 ![1761127379328](image/README/1761127379328.png)
+
+## Notes from Andrea
+
+look at only one team at a time -> T strat fixed and CT strat fluent -> if T using snipers how does CT respond
+make a fixed point (either our own created model, or the team Heroes against everyone else)
+try to make it reactive
