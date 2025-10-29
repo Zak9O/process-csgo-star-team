@@ -43,7 +43,12 @@ If you get this, you most likely used the wrong Java to compile it. See the vide
 Download the demo file [here](https://www.hltv.org/matches/2385919/heroic-vs-3dmax-esl-pro-league-season-22-stage-1)
 ![](docs/images/download-dem.png)
 
-Only consider the `heroic-vs-3dmax-m1-dust2.dem` demo file, and put it in the base of the working tree of the project
+We have compiled a collection of Dust2 games featuring Heroic against different opponents.
+The files can be found as a Zip archive [here](https://dtudk-my.sharepoint.com/:u:/g/personal/s204152_dtu_dk/EWZ-9RMrr9JFkH3LVwG1LuQBfGzFUzO_d7X534ByVL6m5Q?e=7u4coO). \
+**DTU associated account required** \
+Or copying this link:   
+https://dtudk-my.sharepoint.com/:u:/g/personal/s204152_dtu_dk/EWZ-9RMrr9JFkH3LVwG1LuQBfGzFUzO_d7X534ByVL6m5Q?e=7u4coO
+
 
 ## If you use uv
 
