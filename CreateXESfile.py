@@ -1,69 +1,100 @@
 from datetime import datetime, timedelta
 import pm4py
 from pm4py.objects.log.obj import EventLog, Trace, Event
-
+from CreateLog import getListOfActivitiesPerRound
+from demoparser2 import DemoParser
+from tqdm.auto import tqdm
 
 def creatXes(
-    rounds,
+    rounds: list[dict],
     ticks_per_sec: int = 64,
     base_datetime: datetime = None,
     output_xes_file: str = "csgo_EventLog.xes",
+    show_progress: bool = True,
 ):
-    if base_datetime is None:
+   """
+   Convert rounds data to a PM4Py XES event log and write it to output_xes_file.
+   :param rounds:
+   :param ticks_per_sec:
+   :param base_datetime:
+   :param output_xes_file:
+   :param show_progress:
+   :return: 
+   """
+   if base_datetime is None:
         base_datetime = datetime(2025, 1, 1, 0, 0, 0)
 
-    # Create the event log
     event_log = EventLog()
-    # Give the log a name so RuM is happy
     event_log.attributes["concept:name"] = "csgo_demo_log"
 
-    # Go round by round
-    for i, round_data in enumerate(rounds):
+    for i, round_data in enumerate(tqdm(rounds, desc="Rounds", disable=not show_progress)):
         round_idx = i + 1
-
         trace = Trace()
-        # Trace attributes = case attributes in XES
         trace.attributes["round"] = round_idx
         trace.attributes["concept:name"] = f"round_{round_idx}"
 
-        # Give each round its own base start time so timestamps aren't identical
-        # e.g. round 1 starts at base_datetime + 0 min
-        #      round 2 starts at base_datetime + 10 min
-        #      round 3 starts at base_datetime + 20 min
         round_start_dt = base_datetime + timedelta(minutes=10 * i)
 
-        # Go through ticks in order, so events are chronological
-        for tick in sorted(round_data.keys()):
-            # turn tick index into a timestamp
-            # tick / ticks_per_sec = seconds since round start
+        ticks_iter = sorted(round_data.keys())
+        for tick in tqdm(ticks_iter, desc=f"Round {round_idx} ticks", leave=False, disable=not show_progress):
             timestamp = round_start_dt + timedelta(seconds=tick / float(ticks_per_sec))
-
             activities = round_data[tick]
             for activity in activities:
-                # unpack your tuple/list
-                # activity[0] = player name (e.g. "bodyy")
-                # activity[1] = field / activity type (e.g. "is_alive")
-                # activity[2] = value (e.g. True)
                 playername = activity[0]
-                field_name = activity[1]      # this becomes concept:name
+                field_name = activity[1]
                 field_value = activity[2]
 
-                ev = Event()
+                event = Event()
+                event["concept:name"] = field_value
+                event["lifecycle:transition"] = "complete"
+                event["time:timestamp"] = timestamp
+                event["time:tick"] = tick
+                event["custom:value"] = field_value
 
-                # REQUIRED / standard stuff RuM expects
-                ev["concept:name"] = field_value                 # activity label
-                ev["lifecycle:transition"] = "complete"         # generic lifecycle
-                ev["time:timestamp"] = timestamp                # actual datetime
-
-                # YOUR custom data
-                ev["time:tick"] = tick                          # raw game tick
-                ev["custom:value"] = field_value                # the value observed
-
-                trace.append(ev)
+                trace.append(event)
 
         event_log.append(trace)
 
-    # Write the log out as proper XES
     pm4py.write_xes(event_log, output_xes_file)
-
     return event_log
+
+
+
+def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
+    parser = DemoParser(demo_path)
+
+    # Ask demoparser2 for the place name prop directly
+    ticks = parser.parse_ticks(["X", "Y", "Z", "tick", "name", "is_alive", "last_place_name"])
+
+    rounds = parser.parse_event("round_start")
+    round_ends = parser.parse_event("round_end")
+
+    valid_round_starts = rounds.sort_values("tick").reset_index(drop=True)
+    valid_round_ends = round_ends.sort_values("tick").reset_index(drop=True)
+
+    first_start = valid_round_starts["tick"].iloc[0]
+    first_end = valid_round_ends[valid_round_ends["tick"] > first_start]["tick"].iloc[0]
+    print(f"First round range: {first_start} → {first_end}")
+
+    # Slice to round 1 and make a copy
+    round1 = ticks.loc[(ticks["tick"] >= first_start) & (ticks["tick"] <= first_end)].copy()
+    print("Round 1 ticks count:", len(round1))
+
+    # Relative time and 1 Hz sampling
+    round1["relative_tick"] = round1["tick"] - round1["tick"].min()
+    sampled = round1[round1["relative_tick"] % ticks_per_sec == 0].copy()
+    sampled["time_sec"] = sampled["relative_tick"] / float(ticks_per_sec)
+
+    # Order rows nicely
+    sampled = sampled.sort_values(["name", "relative_tick"]).reset_index(drop=True)
+
+    print("Sampled positions:", len(sampled))
+    return sampled
+
+
+def getEventLog(parser: DemoParser):
+    print("Creating log...")
+    rounds = getListOfActivitiesPerRound(parser, max_rounds=3)
+    event_log = creatXes(rounds)
+    print("Done. Log created and saved succesfully")
+
