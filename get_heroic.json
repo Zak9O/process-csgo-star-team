@@ -1,0 +1,6 @@
+[ {
+  "category" : "Attribute",
+  "filteringMode" : "mandatoryMode",
+  "parameterName" : [ "attribute", "value" ],
+  "parameterValue" : [ "concept:playername", [ "Alkaren", "LNZ", "nilo", "xfl0ud", "yxngstxr" ] ]
+} ]

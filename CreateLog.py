@@ -3,17 +3,6 @@ parser = DemoParser("heroic-vs-3dmax-m1-dust2.dem")
 ticks = parser.parse_ticks(["tick", "name", "is_alive", "team_name","bomb_exploded"])
 
 list_of_activities = ["last_place_name"]
-#TODO remove "name"
-
-# print(ticks)
-
-# print(parser.list_game_events())
-
-#print(list(parser.columns.values))
-#print(list(ticks))
-
-# print(parser.parse_event("round_start"))
-# print(parser.parse_event("round_end"))
 
 def getActivityFromField(field:str, df):
 
@@ -33,14 +22,15 @@ def getActivityFromField(field:str, df):
         else:
             _, previous_field_value,_ = field_dict[name][-1]
             if previous_field_value != field_value:
-                field_dict[name].append((field, field_value,tick))
-
+                field_dict[name].append((field, field_value, tick))
 
     return field_dict
 
-# this function itterates over the list of activities given, for example ["is_alive", "last_place_name"]. And then makes a new dictionary
-# where each 
+
 def getActivityLog(activities:list[str], df):
+    # this function itterates over the list of activities given, for example
+    # ["is_alive", "last_place_name"]. And then makes a new dictionary
+    # where each tick maps to a list of (player, field, field_value)
     log_dict = dict()
     for activity in activities:
         field_dict = getActivityFromField(activity, df)
@@ -56,31 +46,123 @@ def getActivityLog(activities:list[str], df):
     return dict(sorted(log_dict.items()))
 
 
+def getListOfActivitiesPerRound(round_numbers: list[int]):
+    """
+    Build activity logs for the specific (1-based) rounds you pass in.
+    Example: [4] returns only round 4; [4, 5] returns rounds 4 and 5.
+    Returns a list of activity-log dicts in the same order as round_numbers.
+    """
+    # pull full round_start / round_end events so we get ticks AND metadata
+    round_start_df = parser.parse_event("round_start")
+    round_end_df = parser.parse_event("round_end")
 
-def getListOfActivitiesPerRound(max_rounds: int = 5):
-    round_start = list(parser.parse_event("round_start")["tick"])
-    round_end = list(parser.parse_event("round_end")["tick"])
+    round_start = list(round_start_df["tick"])
+    round_end = list(round_end_df["tick"])
 
-    list_of_round_interval = []
+    # get full death event data once
+    deaths_df = parser.parse_event("player_death")
 
-    # only build intervals for up to max_rounds
-    limit = min(max_rounds, len(round_start))
+    # normalize the requested rounds: keep order, remove duplicates, keep only positive ints
+    seen = set()
+    requested_rounds = []
+    for rn in round_numbers:
+        if isinstance(rn, int) and rn > 0 and rn not in seen:
+            requested_rounds.append(rn)
+            seen.add(rn)
 
-    for i in range(limit):
-        list_of_round_interval.append((round_start[i], round_end[i+1]))
+    # build (round_number, start_tick, end_tick) tuples
+    round_intervals = []
+    for rn in requested_rounds:
+        i = rn - 1  # 1-based -> 0-based index for lists
+        if i >= len(round_start):
+            # skip if outside available starts
+            continue
+
+        # keep original behavior: pair start[i] with end[i+1] if possible, else fall back to end[i]
+        if i + 1 < len(round_end):
+            start_tick, end_tick = round_start[i], round_end[i + 1]
+        elif i < len(round_end):
+            start_tick, end_tick = round_start[i], round_end[i]
+        else:
+            # no valid end tick
+            continue
+
+        # sanity: ensure end >= start; if not, try to pick the first end after start
+        if end_tick < start_tick:
+            later_ends = [t for t in round_end if t >= start_tick]
+            if later_ends:
+                end_tick = later_ends[0]
+            else:
+                continue
+
+        round_intervals.append((rn, start_tick, end_tick))
 
     list_of_dict = []
-    for interval in list_of_round_interval:
-        start_tick = interval[0]
-        end_tick = interval[1]
 
-        list_of_ticks_for_round_i = list(range(start_tick, end_tick + 1))
-        round_i_df = parser.parse_ticks(list_of_activities, ticks=list_of_ticks_for_round_i)
-        activity_log_round_i = getActivityLog(list_of_activities, round_i_df)
-        list_of_dict.append(activity_log_round_i)
+    for rn, start_tick, end_tick in round_intervals:
+        # all ticks belonging to this round span
+        list_of_ticks_for_round = list(range(start_tick, end_tick + 1))
+
+        # slice per-tick data for this round
+        round_df = parser.parse_ticks(list_of_activities, ticks=list_of_ticks_for_round)
+
+        # build the normal activity log for this round
+        activity_log = getActivityLog(list_of_activities, round_df)
+
+        # figure out which players were active in this round
+        players_in_round = list(round_df["name"].unique())
+
+        # inject round_start for EACH PLAYER at start_tick
+        if start_tick not in activity_log:
+            activity_log[start_tick] = []
+        for pname in players_in_round:
+            activity_log[start_tick].insert(0, (pname, "round_start", "round_start"))
+
+        # add deaths that happened in this round window (per player)
+        if deaths_df is not None and len(deaths_df) > 0:
+            round_deaths = deaths_df[
+                (deaths_df["tick"] >= start_tick) & (deaths_df["tick"] <= end_tick)
+            ]
+            for _, row in round_deaths.iterrows():
+                death_tick = row["tick"]
+                victim_name = row["user_name"]
+                if death_tick not in activity_log:
+                    activity_log[death_tick] = [(victim_name, "player_death", "Died")]
+                else:
+                    activity_log[death_tick].append((victim_name, "player_death", "Died"))
+
+        # inject round_end for EACH PLAYER at end_tick with winner/why
+        matching_end_rows = round_end_df[round_end_df["tick"] == end_tick]
+        winner_value = "winner_UNKNOWN_reason_UNKNOWN"
+        if len(matching_end_rows) > 0:
+            end_row = matching_end_rows.iloc[0]
+
+            winner_team_code = "UNKNOWN"
+            if "winner" in end_row:
+                try:
+                    w_int = int(end_row["winner"])
+                    if w_int == 2:
+                        winner_team_code = "T"
+                    elif w_int == 3:
+                        winner_team_code = "CT"
+                    else:
+                        winner_team_code = str(w_int)
+                except:
+                    winner_team_code = str(end_row["winner"])
+
+            reason_code = "UNKNOWN"
+            if "reason" in end_row:
+                reason_code = str(end_row["reason"])
+
+            winner_value = f"winner_{winner_team_code}_reason_{reason_code}"
+
+        if end_tick not in activity_log:
+            activity_log[end_tick] = []
+        for pname in players_in_round:
+            activity_log[end_tick].append((pname, "round_end", winner_value))
+
+        # final cleanup: keep ticks sorted
+        activity_log = dict(sorted(activity_log.items()))
+        list_of_dict.append(activity_log)
 
     return list_of_dict
-
-
-
-

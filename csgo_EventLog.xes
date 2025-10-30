@@ -2,1635 +2,1149 @@
 <log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
 	<string key="concept:name" value="csgo_demo_log" />
 	<trace>
-		<string key="player" value="bodyy" />
-		<string key="concept:name" value="bodyy" />
+		<string key="player" value="xfl0ud" />
+		<string key="concept:name" value="xfl0ud" />
 		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="1" />
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="23034" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="1332" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:20.812500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="1581" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:24.703125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ShortStairs" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="1682" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.281250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="1821" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:28.453125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="2064" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:32.250000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="2077" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:32.453125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="2446" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:38.218750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Hole" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="4768" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:14.500000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="7701" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:00.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="7892" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:03.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="8682" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:15.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="8981" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:20.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9011" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:20.796875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9022" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:20.968750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9140" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22.812500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9168" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:23.250000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9220" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:24.062500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9257" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:24.640625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9274" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:24.906250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9290" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:25.156250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9313" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:25.515625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9323" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:25.671875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9487" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:28.234375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9506" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:28.531250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9534" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:28.968750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9545" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:29.140625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9605" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:30.078125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9689" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.390625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9709" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.703125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9720" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.875000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9733" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:32.078125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9739" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:32.171875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9746" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:32.281250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9846" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:33.843750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="9880" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:34.375000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="10294" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:40.843750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ARamp" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="11167" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:54.484375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="11785" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:04.140625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Pit" />
-			<string key="concept:playername" value="bodyy" />
-			<int key="time:tick" value="12226" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:11.031250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="Graviti" />
-		<string key="concept:name" value="Graviti" />
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="1" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="1413" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:22.078125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="1600" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:25" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Hole" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="1701" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.578125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="1746" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:27.281250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="7718" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:00.593750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="7913" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:03.640625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="8611" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:14.546875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="8878" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:18.718750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ShortStairs" />
-			<string key="concept:playername" value="Graviti" />
-			<int key="time:tick" value="9112" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22.375000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="LNZ" />
-		<string key="concept:name" value="LNZ" />
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="1" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="1438" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:22.468750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="1665" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="2626" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:41.031250" />
-			<string key="activity:type" value="last_place_name" />
+			<string key="activity:type" value="round_start" />
 		</event>
 		<event>
 			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="7941" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:04.078125" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="24662" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="OutsideLong" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="7986" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:04.781250" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="25051" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="8306" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:09.781250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="8709" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:16.078125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="9113" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22.390625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ShortStairs" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="9457" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:27.765625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="9653" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:30.828125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="10280" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:40.625000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="LNZ" />
-			<int key="time:tick" value="10715" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:47.421875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="nilo" />
-		<string key="concept:name" value="nilo" />
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="1" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="25504" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="1582" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:24.718750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="1824" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:28.500000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="2881" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:45.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="OutsideLong" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="8013" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:05.203125" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="25562" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="8689" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:15.765625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="10230" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:39.843750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="10437" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:43.078125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="10618" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:45.906250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="10709" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:47.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="11108" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:53.562500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="13077" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:24.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="14028" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:39.187500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TRamp" />
-			<string key="concept:playername" value="nilo" />
-			<int key="time:tick" value="14250" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:42.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="Ex3rcice" />
-		<string key="concept:name" value="Ex3rcice" />
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="1" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="25993" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="1355" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:21.171875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="1539" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:24.046875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ARamp" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="1566" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:24.468750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteA" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="1665" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="2599" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:40.609375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="2713" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:42.390625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="2922" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:45.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="3282" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:51.281250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Hole" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="5034" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:18.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="5267" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:22.296875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="7793" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:01.765625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="9685" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="Ex3rcice" />
-			<int key="time:tick" value="9709" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.703125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="Lucky" />
-		<string key="concept:name" value="Lucky" />
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="1" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="1439" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:22.484375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="1617" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:25.265625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="2438" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:38.093750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="3279" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:51.234375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="3336" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:52.125000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="3747" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:58.546875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="4015" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:02.734375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="7840" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:02.500000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="8042" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:05.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="8158" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:07.468750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="8227" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:08.546875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="9116" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22.437500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="10011" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:36.421875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="MidDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="11011" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:52.046875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="CTSpawn" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="11228" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:55.437500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="11552" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:00.500000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongA" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="11749" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:03.578125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LongDoors" />
-			<string key="concept:playername" value="Lucky" />
-			<int key="time:tick" value="12148" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:09.812500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="yxngstxr" />
-		<string key="concept:name" value="yxngstxr" />
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="1" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="1494" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:23.343750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="1747" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:27.296875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="2689" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:42.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="7936" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:04" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="8160" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:07.500000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="8502" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:12.843750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="8687" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:15.734375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="8909" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:19.203125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="9699" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:31.546875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="10265" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:40.390625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="10471" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:43.609375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="11639" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:01.859375" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TRamp" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="12329" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:12.640625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="yxngstxr" />
-			<int key="time:tick" value="13811" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:35.796875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-	</trace>
-	<trace>
-		<string key="player" value="Alkaren" />
-		<string key="concept:name" value="Alkaren" />
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="1" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="1488" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:23.250000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="1712" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.750000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="3582" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:55.968750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="7772" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:01.437500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="9446" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:27.593750" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="9484" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:28.187500" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="26287" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="9524" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:28.812500" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="27203" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="9547" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:29.171875" />
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="27759" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="10172" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:38.937500" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="27932" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="27947" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="30261" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="10411" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:42.671875" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="30430" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="10582" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:45.343750" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="30651" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="10658" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:46.531250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="11246" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:55.718750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="13787" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:35.421875" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="30772" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="Alkaren" />
-			<int key="time:tick" value="14107" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:40.421875" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="31430" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TRamp" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="31655" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="31845" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TRamp" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="32299" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="xfl0ud" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
 		</event>
 	</trace>
 	<trace>
 		<string key="player" value="Maka" />
 		<string key="concept:name" value="Maka" />
 		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="Maka" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
 			<string key="concept:name" value="CTSpawn" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="1" />
+			<int key="time:tick" value="23035" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="MidDoors" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="1404" />
+			<int key="time:tick" value="24459" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:21.937500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="1572" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:24.562500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="1770" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:27.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="3052" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:47.687500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="3394" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:53.031250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="3824" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:59.750000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="4077" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:03.703125" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="CTSpawn" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
+			<int key="time:tick" value="24633" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UnderA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="7792" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:01.750000" />
+			<int key="time:tick" value="24838" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="LongA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="8147" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:07.296875" />
+			<int key="time:tick" value="25021" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UnderA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="8422" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:11.593750" />
+			<int key="time:tick" value="25354" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="ExtendedA" />
+			<string key="concept:name" value="LongA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="8684" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:15.687500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="8993" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:20.515625" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="9060" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:21.562500" />
+			<int key="time:tick" value="25392" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UnderA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="9088" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="9112" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:22.375000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="9584" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:29.750000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="ExtendedA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="9780" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:32.812500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UnderA" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="10662" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:46.593750" />
+			<int key="time:tick" value="29141" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="CTSpawn" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="10738" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:47.781250" />
+			<int key="time:tick" value="29341" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="MidDoors" />
+			<string key="concept:name" value="UnderA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="11164" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:54.437500" />
+			<int key="time:tick" value="29412" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="Middle" />
+			<string key="concept:name" value="LongA" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="11919" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:06.234375" />
+			<int key="time:tick" value="30188" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="MidDoors" />
+			<string key="concept:name" value="LongDoors" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="11939" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:06.546875" />
+			<int key="time:tick" value="30475" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="Middle" />
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
 			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="11965" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:06.953125" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="Alkaren" />
+		<string key="concept:name" value="Alkaren" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="Alkaren" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:playername" value="Alkaren" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="Maka" />
-			<int key="time:tick" value="12169" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:10.140625" />
+			<string key="concept:playername" value="Alkaren" />
+			<int key="time:tick" value="24389" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Died" />
+			<string key="concept:playername" value="Alkaren" />
+			<int key="time:tick" value="24560" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="player_death" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="Alkaren" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
 		</event>
 	</trace>
 	<trace>
-		<string key="player" value="xfl0ud" />
-		<string key="concept:name" value="xfl0ud" />
+		<string key="player" value="yxngstxr" />
+		<string key="concept:name" value="yxngstxr" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
 		<event>
 			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="1" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="23035" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:00.015625" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="1454" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="24608" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:22.718750" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="1685" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="24831" />
 			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:26.328125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="2717" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:42.453125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="3736" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:00:58.375000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="4564" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:11.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="5072" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:19.250000" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="5690" />
-			<int key="round" value="1" />
-			<date key="time:timestamp" value="2025-01-01T00:01:28.906250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="6356" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:11:39.312500" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="7766" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:01.343750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideLong" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="7811" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:02.046875" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="8406" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:11.343750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="OutsideLong" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="8421" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:11.578125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="TopofMid" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="8445" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:11.953125" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="8758" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:16.843750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Catwalk" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="9258" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:24.656250" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="Middle" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="10142" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:38.468750" />
-			<string key="activity:type" value="last_place_name" />
-		</event>
-		<event>
-			<string key="concept:name" value="LowerTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="10218" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:39.656250" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TunnelStairs" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="10469" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:43.578125" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="25085" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
-			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="10560" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:45" />
+			<string key="concept:name" value="LowerTunnel" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="25241" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="25751" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="26180" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="27545" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="27555" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="27622" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="28101" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="29115" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="BombsiteB" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="11057" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:12:52.765625" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="29440" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="UpperTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="12232" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:11.125000" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="29676" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="OutsideTunnel" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="13899" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:37.171875" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="30533" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TRamp" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="30783" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
 		</event>
 		<event>
 			<string key="concept:name" value="TSpawn" />
-			<string key="concept:playername" value="xfl0ud" />
-			<int key="time:tick" value="14213" />
-			<int key="round" value="2" />
-			<date key="time:timestamp" value="2025-01-01T00:13:42.078125" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="31040" />
+			<int key="round" value="1" />
 			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="32129" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="yxngstxr" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="Lucky" />
+		<string key="concept:name" value="Lucky" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="24493" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="24851" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="25083" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Died" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="29322" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="player_death" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="Lucky" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="Ex3rcice" />
+		<string key="concept:name" value="Ex3rcice" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="24380" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="24582" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="25285" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="25495" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="25518" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="25939" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="25963" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="27641" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="27663" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="27741" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="27802" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="27831" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="28051" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="28636" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="28663" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="28744" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="29356" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="29458" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="ARamp" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="29763" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="29911" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="ExtendedA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30144" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30230" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30278" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30291" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30343" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30356" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="30864" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="Ex3rcice" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="nilo" />
+		<string key="concept:name" value="nilo" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="24775" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="25015" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TunnelStairs" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="25804" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LowerTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="25966" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="26647" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="27684" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="29185" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Hole" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="29311" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="29381" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Hole" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="30681" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="30803" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="31215" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="31735" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="31753" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="32144" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="nilo" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="LNZ" />
+		<string key="concept:name" value="LNZ" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="24864" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="24916" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="25332" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="25759" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="25862" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="ShortStairs" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="26774" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="26905" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="27467" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="27923" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="29088" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="29278" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="30513" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="31358" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TRamp" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="31574" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="31723" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="LNZ" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="Graviti" />
+		<string key="concept:name" value="Graviti" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="24513" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="25293" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="25387" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BDoors" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="26545" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="26737" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Hole" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="28634" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="28663" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Died" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="28947" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="player_death" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="Graviti" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
+		</event>
+	</trace>
+	<trace>
+		<string key="player" value="bodyy" />
+		<string key="concept:name" value="bodyy" />
+		<event>
+			<string key="concept:name" value="round_start" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="23034" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_start" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="23035" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="24401" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="24598" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="24815" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="24827" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="25639" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="28420" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="UnderA" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="28586" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="CTSpawn" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="28806" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="29288" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="29763" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="last_place_name" />
+		</event>
+		<event>
+			<string key="concept:name" value="Died" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="30128" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="player_death" />
+		</event>
+		<event>
+			<string key="concept:name" value="winner_T_reason_bomb_exploded" />
+			<string key="concept:playername" value="bodyy" />
+			<int key="time:tick" value="32301" />
+			<int key="round" value="1" />
+			<string key="activity:type" value="round_end" />
 		</event>
 	</trace>
 </log>
