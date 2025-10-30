@@ -1,19 +1,5 @@
 from demoparser2 import DemoParser
-parser = DemoParser("heroic-vs-3dmax-m1-dust2.dem")
-ticks = parser.parse_ticks(["tick", "name", "is_alive", "team_name","bomb_exploded"])
-
 list_of_activities = ["last_place_name"]
-#TODO remove "name"
-
-# print(ticks)
-
-# print(parser.list_game_events())
-
-#print(list(parser.columns.values))
-#print(list(ticks))
-
-# print(parser.parse_event("round_start"))
-# print(parser.parse_event("round_end"))
 
 def getActivityFromField(field:str, df):
 
@@ -22,7 +8,6 @@ def getActivityFromField(field:str, df):
     for _, row in df.iterrows():
         name = row["name"]
         field_value = row[field]
-        # We found some anomalies, where no zone was given, we are disregarding these
         if field_value == "":
             continue 
         tick = row["tick"]
@@ -38,9 +23,8 @@ def getActivityFromField(field:str, df):
 
     return field_dict
 
-# this function itterates over the list of activities given, for example ["is_alive", "last_place_name"]. And then makes a new dictionary
-# where each 
 def getActivityLog(activities:list[str], df):
+
     log_dict = dict()
     for activity in activities:
         field_dict = getActivityFromField(activity, df)
@@ -56,8 +40,7 @@ def getActivityLog(activities:list[str], df):
     return dict(sorted(log_dict.items()))
 
 
-
-def getListOfActivitiesPerRound(max_rounds: int = 5):
+def getListOfActivitiesPerRound(parser: DemoParser, max_rounds: int = 5) -> list[dict]:
     round_start = list(parser.parse_event("round_start")["tick"])
     round_end = list(parser.parse_event("round_end")["tick"])
 
