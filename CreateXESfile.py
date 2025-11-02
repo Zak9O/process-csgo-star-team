@@ -123,6 +123,6 @@ def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
 def getEventLog(parser: DemoParser):
     print("Creating log...")
     rounds = getListOfActivitiesPerRound(parser, max_rounds=3)
-    event_log = creatXes(rounds)
+    creatXes(rounds)
     print("Done. Log created and saved succesfully")
 

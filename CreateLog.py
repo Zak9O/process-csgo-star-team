@@ -20,7 +20,6 @@ def getActivityFromField(field:str, df):
             if previous_field_value != field_value:
                 field_dict[name].append((field, field_value,tick))
 
-
     return field_dict
 
 def getActivityLog(activities:list[str], df):
