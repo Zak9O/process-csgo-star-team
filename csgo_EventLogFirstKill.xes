@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<string key="concept:name" value="csgo_demo_log" />
+	<trace>
+		<int key="round" value="1" />
+		<string key="concept:name" value="round_1" />
+		<event>
+			<string key="concept:name" value="nilo" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="1" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="1" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="1" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="1582" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="1824" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="2881" />
+			<string key="custom:value" value="nilo" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="2" />
+		<string key="concept:name" value="round_2" />
+		<event>
+			<string key="concept:name" value="xfl0ud" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="6355" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="6355" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="6356" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="7766" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="7811" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="8406" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="8421" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="8445" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="8758" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="9258" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="10142" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="LowerTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="10218" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TunnelStairs" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="10469" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="10560" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="11057" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="12232" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="13899" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="14213" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="6" />
+		<string key="concept:name" value="round_6" />
+		<event>
+			<string key="concept:name" value="nilo" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="39633" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="39633" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="39634" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="41012" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="41043" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="41287" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Pit" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="41660" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="42294" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="ARamp" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="43651" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="44001" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="ExtendedA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="45144" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="45744" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="False" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="47201" />
+			<string key="custom:value" value="nilo" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="8" />
+		<string key="concept:name" value="round_8" />
+		<event>
+			<string key="concept:name" value="xfl0ud" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="56955" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="56955" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="56956" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="60599" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="60832" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TunnelStairs" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61012" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61045" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="TunnelStairs" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61047" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="LowerTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61088" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61472" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="MidDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="61534" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="False" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="62115" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="17" />
+		<string key="concept:name" value="round_17" />
+		<event>
+			<string key="concept:name" value="bodyy" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="145792" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="145792" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="145793" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="147489" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="147734" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="147814" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="147961" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="149347" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TRamp" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="149578" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="149740" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="150914" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="150972" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="151410" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="151838" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="152340" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="ShortStairs" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="152567" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="ExtendedA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="152710" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="152986" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="ARamp" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="154477" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="154493" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="154582" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="155037" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="155536" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="155797" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="18" />
+		<string key="concept:name" value="round_18" />
+		<event>
+			<string key="concept:name" value="Maka" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="156433" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="156433" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="156434" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="157775" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="159215" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="159362" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="159690" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="Side" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="159786" />
+			<string key="custom:value" value="Maka" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="19" />
+		<string key="concept:name" value="round_19" />
+		<event>
+			<string key="concept:name" value="Graviti" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="160413" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="160413" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="160414" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="164534" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="164763" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="BombsiteB" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="165357" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="UpperTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="167642" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideTunnel" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="167970" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="168270" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="20" />
+		<string key="concept:name" value="round_20" />
+		<event>
+			<string key="concept:name" value="Ex3rcice" />
+			<string key="concept:activity" value="name" />
+			<int key="time:tick" value="169029" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="True" />
+			<string key="concept:activity" value="is_alive" />
+			<int key="time:tick" value="169029" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="TSpawn" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="169030" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="170447" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="170496" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="170922" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="171877" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172033" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="Middle" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172309" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="Catwalk" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172327" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="TopofMid" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172358" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="OutsideLong" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172502" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongDoors" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="172675" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="LongA" />
+			<string key="concept:activity" value="last_place_name" />
+			<int key="time:tick" value="173041" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+	</trace>
+</log>

@@ -1,3 +1,4 @@
+from CreateXESfile import FirstKillXES
 from CreateXESfile import creatXes
 from CreateLog import getListOfActivitiesPerRound
 from demoparser2 import DemoParser
@@ -7,6 +8,7 @@ def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
 
     # Ask demoparser2 for the place name prop directly
     ticks = parser.parse_ticks(["X", "Y", "Z", "tick", "name", "is_alive", "last_place_name"])
+    
 
     rounds = parser.parse_event("round_start")
     round_ends = parser.parse_event("round_end")
@@ -37,6 +39,8 @@ def sample_positions_every_second(demo_path: str, ticks_per_sec: int = 64):
 def getEventLog():
     list_of_dictionaries = getListOfActivitiesPerRound()
     creatXes(list_of_dictionaries)
+    
+    FirstKillXES(list_of_dictionaries)
 
 
 
