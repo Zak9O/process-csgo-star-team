@@ -12,7 +12,7 @@ We are doing this at the moment and have something to show.
 **I have answered domain related questions using the results of process mining** 🟥  
 
 **I have tested, discussed and compared different process mining algorithms in the context of the given problem (e.g., for the discovery, Inductive Miner vs Heuristics Miner)** 🟥  
-Note sure if RUM supports this. If it does not, we must talk to Andrea or construct some petri nets using disco.
+Show how the same event log looks different in disco and in RuM. This can show why we have chosen to go with declarative process mining over petri nets
 
 **I have discussed, interpreted and evaluated the outcomes of the process mining activity** 🟥  
 Can be done once we have some actual models
@@ -32,6 +32,7 @@ We follow Andre's lead and try to focus on the dynamic behavoir of a match (one 
 | A team winning a round by ahnialating the enemy team | Round begins | team wins |
 | The terrorist that gets the first kill. Analyze his behavoir up untill he kills | When round begins | When first blood is drawn |
 | Characterize the process of a specific player, `faker`, that buys an awp and gets his first kill | Round begins |first blood is drawn |
+| The movements of the player that plants the bomb | when the bomb is planted | the player dies or the round ends |
 
 # Ideas for future work
 * Look at different games where we keep one team constant. 
