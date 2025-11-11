@@ -1,3 +1,5 @@
 *.dem
 /.idea
 typings/
+.ipynb_checkpoints
+logs
