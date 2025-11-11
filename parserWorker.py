@@ -32,7 +32,7 @@ def dfToEventLog(
             if last_added is None or curr != last_added:
                 trace_dict[tick] = curr
                 last_added = curr
-        key = identifier if trace_identifier == "name" else f"{trace_identifier}_{identifier}"
+        key = identifier if tracegiu_identifier == "name" else f"{trace_identifier}_{identifier}"
         log_dict[key] = trace_dict  # already ordered by tick keys
     return log_dict
 
