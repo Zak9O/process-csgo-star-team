@@ -7,4 +7,14 @@ requires-python = ">=3.12"
 dependencies = [
     "demoparser2>=0.40.0",
     "pandas>=2.3.3",
+    "pm4py>=2.7.19",
+    "rustxes>=0.2.11",
+]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.33.0",
+    "jupyterlab>=4.4.10",
+    "jupyterlab-lsp>=5.2.0",
+    "jupyterlab-vim>=4.1.4",
 ]
