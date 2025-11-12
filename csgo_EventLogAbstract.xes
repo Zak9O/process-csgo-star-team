@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<string key="concept:name" value="csgo_demo_log" />
+	<trace>
+		<int key="round" value="1" />
+		<string key="concept:name" value="round_1" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="2394" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteB" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="3518" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="6035" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="2" />
+		<string key="concept:name" value="round_2" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="9530" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteB" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="11685" />
+			<string key="custom:value" value="Alkaren" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="14309" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="3" />
+		<string key="concept:name" value="round_3" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="19218" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="22713" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="22714" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="4" />
+		<string key="concept:name" value="round_4" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="24560" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteB" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="29677" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="32301" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="5" />
+		<string key="concept:name" value="round_5" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="34888" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="39312" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="39313" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="6" />
+		<string key="concept:name" value="round_6" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="41825" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="46152" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="48280" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="7" />
+		<string key="concept:name" value="round_7" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="56358" />
+			<string key="custom:value" value="Lucky" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="56634" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="56635" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="8" />
+		<string key="concept:name" value="round_8" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="61979" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="66637" />
+			<string key="custom:value" value="Alkaren" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="69261" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="9" />
+		<string key="concept:name" value="round_9" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="73251" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="78220" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="78221" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="10" />
+		<string key="concept:name" value="round_10" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="78385" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="88946" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="88947" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="11" />
+		<string key="concept:name" value="round_11" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="91774" />
+			<string key="custom:value" value="Lucky" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="94363" />
+			<string key="custom:value" value="yxngstxr" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="96641" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="12" />
+		<string key="concept:name" value="round_12" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="99263" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="103170" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="103171" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="13" />
+		<string key="concept:name" value="round_13" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="117473" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="121277" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="121278" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="14" />
+		<string key="concept:name" value="round_14" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="126219" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteB" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="126985" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="129470" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="15" />
+		<string key="concept:name" value="round_15" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="134517" />
+			<string key="custom:value" value="nilo" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="135572" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by CT" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="137724" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="16" />
+		<string key="concept:name" value="round_16" />
+		<event>
+			<string key="concept:name" value="First_Blood on TERRORIST" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="139941" />
+			<string key="custom:value" value="xfl0ud" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="144586" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="145472" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="17" />
+		<string key="concept:name" value="round_17" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="148271" />
+			<string key="custom:value" value="bodyy" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteA" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="154218" />
+			<string key="custom:value" value="Lucky" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="156113" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="18" />
+		<string key="concept:name" value="round_18" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="157930" />
+			<string key="custom:value" value="Maka" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="160092" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="160093" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="19" />
+		<string key="concept:name" value="round_19" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="165382" />
+			<string key="custom:value" value="Graviti" />
+		</event>
+		<event>
+			<string key="concept:name" value="Plant BombsiteB" />
+			<string key="concept:activity" value="Bomb_Planted" />
+			<int key="time:tick" value="166085" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="168709" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+	<trace>
+		<int key="round" value="20" />
+		<string key="concept:name" value="round_20" />
+		<event>
+			<string key="concept:name" value="First_Blood on CT" />
+			<string key="concept:activity" value="First_Kill" />
+			<string key="time:tick" value="171139" />
+			<string key="custom:value" value="Ex3rcice" />
+		</event>
+		<event>
+			<string key="concept:name" value="No Plant" />
+			<string key="concept:activity" value="Bomb_Not_Planted" />
+			<string key="time:tick" value="173636" />
+			<string key="custom:value" value="Not_Planted" />
+		</event>
+		<event>
+			<string key="concept:name" value="Won by T" />
+			<string key="concept:activity" value="winner" />
+			<string key="time:tick" value="173637" />
+			<string key="custom:value" value="Who Won" />
+		</event>
+	</trace>
+</log>
