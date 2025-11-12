@@ -33,7 +33,8 @@ class Parser:
     def parse_round(self, round: int) -> list[list[str]]:
         start_t, end_t = self.extract_ticks(round)
 
-        df = self.get_CT_dataframe(start_t, end_t)
+        df = self.get_scoped_df(start_t, end_t)
+        df = self.only_ct(df)
         
         # Defined here for optimization purposes
         alive_start_dict = self.get_alive_at_t_dict(df, start_t)
@@ -74,14 +75,17 @@ class Parser:
 
         return (start_t, end_t)
 
-    def get_CT_dataframe(self, start_t: int, end_t: int) -> pd.DataFrame:
-        trace = self.parser.parse_ticks(
+    def get_scoped_df(self, start_t: int, end_t: int) -> pd.DataFrame:
+        df = self.parser.parse_ticks(
             ["last_place_name", "team_name", "is_alive"],
             ticks=range(int(start_t), int(end_t + 1)),
         )
-        team_mask = trace["team_name"] == "CT"
-        trace = trace[team_mask]
-        return trace
+        return df
+
+    def only_ct(self, df: DataFrame) -> DataFrame:
+        team_mask = df["team_name"] == "CT"
+        df = df[team_mask]
+        return df
 
     def get_alive_at_t_dict(self, df: pd.DataFrame, tick: int) -> dict[str, bool]:
         tick_mask = df["tick"] == tick
