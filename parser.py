@@ -92,9 +92,3 @@ class Parser:
         change_mask = df["last_place_name"] != df["last_place_name"].shift(1)
         df = df[change_mask]
         return df
-
-
-parser = Parser("heroic-vs-3dmax-m1-dust2.dem")
-
-parser.parse()
-
