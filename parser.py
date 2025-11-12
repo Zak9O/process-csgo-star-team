@@ -34,26 +34,28 @@ class Parser:
         start_t, end_t = self.extract_ticks(round)
 
         df = self.get_CT_dataframe(start_t, end_t)
-        alive_start = self.alive_at_t(df, start_t)
+        
+        # Defined here for optimization purposes
+        alive_start_dict = self.get_alive_at_t_dict(df, start_t)
+        alive_end_dict = self.get_alive_at_t_dict(df, end_t)
 
         players: list[str] = list(df["name"].unique())
 
         traces: list[list[str]] = []
 
         for player in players:
-            if not alive_start[player]:
+            if not alive_start_dict[player]:
                 continue
-            trace = self.parse_player(player, df, end_t)
+            trace = self.parse_player(player, df, alive_end_dict)
             traces.append(trace)
 
         return traces
 
-    def parse_player(self, player: str, df: pd.DataFrame, end_t: int) -> list[str]:
-        alive_end = self.alive_at_t(df, end_t)
+    def parse_player(self, player: str, df: pd.DataFrame, alive_end_dict: dict[str, bool]) -> list[str]:
         df = self.mask_df_to_player(player, df)
 
         trace = list(df["last_place_name"])
-        if not alive_end[player]:
+        if not alive_end_dict[player]:
             trace.append("Die")
         trace.append("Round End")
 
@@ -81,7 +83,7 @@ class Parser:
         trace = trace[team_mask]
         return trace
 
-    def alive_at_t(self, df: pd.DataFrame, tick: int) -> dict[str, int]:
+    def get_alive_at_t_dict(self, df: pd.DataFrame, tick: int) -> dict[str, bool]:
         tick_mask = df["tick"] == tick
         df = df[tick_mask]
         return df[["name", "is_alive"]].set_index("name")["is_alive"].to_dict()
