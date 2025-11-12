@@ -64,6 +64,12 @@ class Parser:
 
         print(f"  Found {len(incident_intervals)} rounds with bomb planted!")
         for start, end, round in incident_intervals:
+            # There is some very weird behavoir where the same round is finished twice. 
+            # I have chosen to skip it, since it is VERY rare
+            # It happens in round 0 of game: "drgn-vs-ursa-m3-dust2.dem"
+            if end < start:
+                print("WARNING: Weird round behavoir where end < start")
+                continue
             df = self.parser.parse_ticks(
                 ["tick", "name", "is_alive", "team_name", "last_place_name", "total_rounds_played"],
                 ticks=range(start, end + 1),
@@ -73,9 +79,13 @@ class Parser:
             incident_parser = IncidentParser(
                 df, events_death, round_end_reason, self.decorator
             )
-            trace = incident_parser.parse()
-            traces.extend(trace)
-            print(f"  Parsed round {round}")
+            try: 
+                trace = incident_parser.parse()
+                traces.extend(trace)
+                print(f"  Parsed round {round}")
+            except Exception as e:
+                print("------------- An Error occured!!! -------------")
+                print(e)
 
         return traces
 
@@ -95,9 +105,9 @@ class Parser:
             round_end = self.events_round_end[
                 self.events_round_end["total_rounds_played"] == round
             ].iloc[0]
-            start_t = int(round_end["tick"])
+            end = int(round_end["tick"])
 
-            output.append((start, start_t, int(round)))
+            output.append((start, end, int(round)))
 
         return output
 
@@ -208,6 +218,9 @@ class CaseParser:
     ) -> None:
         self.df: pd.DataFrame = df
         self.start = self.df.iloc[0]["tick"]
+        # TODO: This is wrong. The end tick is way later than everybody else 
+        # Probably because they get to fuck around after a game? 
+        # But then again, that should have been filtered from when the game ended
         self.end = self.df.iloc[-1]["tick"]  # This might be weird if everybody is dead
         self.decorator: Decorator = decorator
         self.start = self.df.iloc[0]["tick"]
