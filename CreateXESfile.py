@@ -33,7 +33,7 @@ def FirstKillXES(rounds):
         AttackerName=logDict[0]["attacker_name"]
         if VictimTeamName=="TERRORIST":
             continue
-        
+        stopCheck=False
         
         trace = Trace()
         trace.attributes["round"] = i+1
@@ -41,14 +41,31 @@ def FirstKillXES(rounds):
 
         for tick in round:
             for activity in round[tick]:
+                if (stopCheck==True):
+                    break
                 if activity[0] != AttackerName :
                     continue
-                event = Event()
-                event['concept:name'] = activity[2]
-                event['concept:activity'] = activity[1]
-                event['time:tick'] = tick
-                event['custom:value'] = activity[0]  
-                trace.append(event)
+                if(tmp["tick"].min()<tick):
+                    stopCheck=True
+                    event = Event()
+                    event['concept:name'] = "First_Blood"
+                    event['concept:activity'] = "First_Kill"
+                    event['time:tick'] = tmp["tick"].min()
+                    event['custom:value'] = AttackerName
+                    trace.append(event) 
+                else:
+                    event = Event()
+                    event['concept:name'] = activity[2]
+                    event['concept:activity'] = activity[1]
+                    event['time:tick'] = tick
+                    event['custom:value'] = activity[0]  
+                    trace.append(event)
+                
+                
+            if(stopCheck==True):
+                break
+            
+                
                 
         event_log.append(trace)
 

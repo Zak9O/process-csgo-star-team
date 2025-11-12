@@ -60,11 +60,11 @@ parser=DemoParser("heroic-vs-3dmax-m1-dust2.dem")
 
 df = parser.parse_event("player_death", player=["last_place_name","team_name"],other=["total_rounds_played","tick"])
 
-#df = df[df["total_rounds_played"] == 1]
+df = df[df["total_rounds_played"] == 0]
 
 #print(df.to_string())
 tmp = df.groupby(["tick","total_rounds_played","user_name","user_team_name", "attacker_name"]).size().to_frame(name='total_kills').reset_index()
-#print(tmp["tick"].min())
+print(tmp["tick"].min())
 #logDict=tmp.to_dict('index')
 print(tmp)
 
