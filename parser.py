@@ -26,6 +26,7 @@ class Case:
         self.trace: list[Activity] = trace
         self.attributes: dict[str, object] = attributes
 
+
 class Parser:
     """
     Focuses on last_place_name
@@ -63,8 +64,11 @@ class Parser:
 
     def parse_round(self, round: int) -> list[Case]:
         start_t, end_t = self.extract_ticks(round)
+        self.start_t = start_t  # pyright: ignore[reportUnannotatedClassAttribute, reportUninitializedInstanceVariable]
 
         df = self.get_scoped_df(start_t, end_t)
+
+        self.alive_on_t_count = self.get_alive_on_t(df, start_t)  # pyright: ignore[reportUnannotatedClassAttribute, reportUninitializedInstanceVariable]
         df = self.filter_ct(df)
 
         # Defined here for optimization purposes. Takes O(N) to construct each dict
@@ -99,7 +103,7 @@ class Parser:
         df = self.mask_df_to_player(player, df)
         trace = self.parse_trace(player, df, alive_end_dict)
 
-        attributes = self.get_case_attributes(df)
+        attributes = self.get_user_specific_case_attributes(df)
 
         return Case(self.path + str(round) + player, trace, attributes)
 
@@ -112,7 +116,7 @@ class Parser:
 
         for _, row in df.iterrows():
             name = row["last_place_name"]
-            time = row["tick"]
+            time = row["tick"] - self.start_t
             attributes = dict()
             for attr in self.ACTIVITY_ATTRIBUTES:
                 attributes[attr] = row[attr]
@@ -125,15 +129,15 @@ class Parser:
 
         return trace
 
-    def get_case_attributes(self, df: DataFrame) -> dict[str, object]:
+    def get_user_specific_case_attributes(self, df: DataFrame) -> dict[str, object]:
         df: pd.Series[Any] = df.iloc[0]
-        attributes:dict[str, object] = {}
+        attributes: dict[str, object] = {}
+        attributes['t_alive_on_bomb_planted'] = self.alive_on_t_count
 
         for attr in self.CASE_ATTRIBUTES:
             attributes[attr] = df[attr]
 
         return attributes
-
 
     def extract_ticks(self, round: int) -> tuple[int, int]:
         bomb_defused = self.events_bomb_defused[
@@ -176,10 +180,19 @@ class Parser:
         df = df[change_mask]
         return df
 
+    def get_alive_on_t(self, df: DataFrame, tick: int) -> int:
+        team_mask = df["team_name"] == "TERRORIST"
+        df = df[team_mask]
+        tick_mask = df["tick"] == tick
+        df = df[tick_mask]
+        alive_mask = df["is_alive"]
+        df = df[alive_mask]
+        return len(df)
+
 
 def create_event_log(cases: list[Case]) -> EventLog:
     event_log = EventLog()
-    event_log.attributes["concept:name"]= "csgo_demo_log"
+    event_log.attributes["concept:name"] = "csgo_demo_log"
     for case in cases:
         trace = Trace()
         trace.attributes["concept:name"] = case.name
@@ -187,11 +200,11 @@ def create_event_log(cases: list[Case]) -> EventLog:
             trace.attributes[attr] = value
         for activity in case.trace:
             event = Event()
-            event['concept:name'] = activity.name
+            event["concept:name"] = activity.name
 
             # 0.0156 seconds per tick for a 64-tick server
             # 0.0078 seconds per tick for a 128-tick server
-            event['time:seconds'] = int(activity.time *  0.0156)
+            event["time:seconds"] = int(activity.time * 0.0156)
             for attr, value in activity.attributes.items():
                 event[attr] = value
 
@@ -200,4 +213,3 @@ def create_event_log(cases: list[Case]) -> EventLog:
         event_log.append(trace)
 
     return event_log
-
