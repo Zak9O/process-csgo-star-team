@@ -38,19 +38,28 @@ def AbstractXES():
         #Round
         FB_Round = FB_df[FB_df["total_rounds_played"] == i]
         #Group by
-        FB_group = FB_Round.groupby(["tick","total_rounds_played","user_name","user_team_name", "attacker_name"]).size().to_frame(name='total_kills').reset_index()
+        FB_group = FB_Round.groupby(["tick","total_rounds_played","user_name","user_team_name", "attacker_name","attacker_last_place_name"]).size().to_frame(name='total_kills').reset_index()
         #Into a dict
         FBDict=FB_group.to_dict('index')
         #Extra info
         VictimTeamName=FBDict[0]["user_team_name"]
         AttackerName=FBDict[0]["attacker_name"]
+        PlaceName=FBDict[0]["attacker_last_place_name"]
         
         event = Event()
-        event['concept:name'] = "First_Blood on " + VictimTeamName
+        event['concept:name'] = "First blood on " + VictimTeamName 
         event['concept:activity'] = "First_Kill"
         event['time:tick'] = FB_group["tick"].min()
         event['custom:value'] = AttackerName
         trace.append(event) 
+        
+        event = Event()
+        event['concept:name'] = "FB on " + VictimTeamName + " at " + PlaceName
+        event['concept:activity'] = "First_Kill"
+        event['time:tick'] = FB_group["tick"].min()
+        event['custom:value'] = AttackerName
+        trace.append(event) 
+        
         
         # BOMB PLANTED
         #Round
@@ -67,8 +76,41 @@ def AbstractXES():
                 event['time:tick'] = BombDict[key]["tick"]
                 event['custom:value'] = BombDict[key]["user_name"]
                 trace.append(event) 
-                        
-                #print(Bomb_planted)
+                
+                advan_df=parser.parse_ticks(["is_alive", "team_name"], ticks=[BombDict[key]["tick"]+1])
+                dict_Advan=advan_df.to_dict('index')
+                CT_Adv=0
+                
+                for x in dict_Advan:
+                    if dict_Advan[x]["is_alive"]==True:
+                        if dict_Advan[x]["team_name"]=="CT":
+                            CT_Adv+=1
+                            #print(CT_Adv)
+                        else:
+                            CT_Adv-=1
+                            #print(CT_Adv)
+                if CT_Adv>0:
+                    event = Event()
+                    event['concept:name'] = "CT Advantage"
+                    event['concept:activity'] = "Advantage"
+                    event['time:tick'] = BombDict[key]["tick"]+1
+                    event['custom:value'] = 0
+                    trace.append(event) 
+                elif CT_Adv<0:
+                    event = Event()
+                    event['concept:name'] = "Terrorist Advantage"
+                    event['concept:activity'] = "Advantage"
+                    event['time:tick'] = BombDict[key]["tick"]+1
+                    event['custom:value'] = 0
+                    trace.append(event) 
+                elif CT_Adv==0:
+                    event = Event()
+                    event['concept:name'] = "Equal Footing"
+                    event['concept:activity'] = "Advantage"
+                    event['time:tick'] = BombDict[key]["tick"]+1
+                    event['custom:value'] = 0
+                    trace.append(event) 
+                    
                 break
         else:
             event = Event()
@@ -77,7 +119,8 @@ def AbstractXES():
             event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
             event['custom:value'] = "Not_Planted"
             trace.append(event) 
-            
+        
+        
             
         # WINNER OF THE ROUND
         event = Event()
