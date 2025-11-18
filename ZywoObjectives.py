@@ -63,10 +63,6 @@ def ensure_plotdata(plotData: dict, dfEventsRound: pd.DataFrame = None, tick_rat
 
     return plotData
 def plot_activity_with_decay(plotData: dict, tick_rate: float = 64.0, ax=None, show: bool = False, show_legend: bool = True, line_color=None, line_label=None):
-    """Plot activity using the provided plotData dictionary.
-
-    plotData will be filled with defaults by `ensure_plotdata` if keys are missing.
-    """
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -96,15 +92,31 @@ def plot_activity_with_decay(plotData: dict, tick_rate: float = 64.0, ax=None, s
 
     activity = 0.0
     last_event_tick = first_tick
-    event_dict = dict(zip(ticks, activity_points)) if len(ticks) else {}
 
-    for i, current_tick in enumerate(t):
-        dt = current_tick - last_event_tick
-        activity *= np.exp(-lambda_decay * dt)
-        if current_tick in event_dict:
-            activity += float(event_dict[current_tick])
-        y[i] = activity
-        last_event_tick = current_tick
+    # If activityOverTime exists we treat the activity values as totals (already decayed)
+    activity_over_time = plotData.get("activityOverTime", []) or []
+    if activity_over_time:
+        # map tick -> total activity (decayed) at that tick
+        total_map = {int(tk): float(act) for (tk, act, _) in activity_over_time}
+        for i, current_tick in enumerate(t):
+            dt = current_tick - last_event_tick
+            # decay from previous tick
+            activity *= np.exp(-lambda_decay * dt)
+            if current_tick in total_map:
+                # set activity to the recorded total (not add)
+                activity = float(total_map[current_tick])
+            y[i] = activity
+            last_event_tick = current_tick
+    else:
+        # fallback: activities_plot are per-event contributions (deltas)
+        event_dict = dict(zip(ticks, activity_points)) if len(ticks) else {}
+        for i, current_tick in enumerate(t):
+            dt = current_tick - last_event_tick
+            activity *= np.exp(-lambda_decay * dt)
+            if current_tick in event_dict:
+                activity += float(event_dict[current_tick])
+            y[i] = activity
+            last_event_tick = current_tick
 
     # Convert to seconds for x-axis
     t_seconds = t / tick_rate
@@ -275,6 +287,8 @@ class WorkflowLog:
         self.caseID = 0 #increments for each trace
         self.TICK_RATE = 64.0 #server tick rate
         self.PLOTTING = True
+        self.matchNumber = 0
+        self.roundNumber = 0
 
         #Events & Activity points
         self.GAME_EVENTS = ['grenade_thrown', 'weapon_fire', 'player_hurt', 'player_death']
@@ -331,7 +345,7 @@ class WorkflowLog:
         self.EVEN_COEFFICENT = 1.3 #if points is even by 30%, then 
         
         #Filters & stuff
-        self.DELAY_WEAPON_FIRE_RECORDING = 1 #1 sec between recording of fires events, to avoid spraying giving a lot of activtiy points
+        self.DELAY_WEAPON_FIRE_RECORDING_SPRAY = 1 #1 sec between recording of fires events, to avoid spraying giving a lot of activtiy points
         self.WEAPON_FIRE_FILTER = ["knife", "flashbang", "hegrenade", "smokegrenade", "decoy", "molotov", "incendiary"]
 
         self.FILTER_FRACTION_EVENTS_AFTER_MAPPING_PER_ROUND = 0.90 #If filtered events are more than 10%, dont consider this level #TODO add this as trace attribute
@@ -475,7 +489,7 @@ class WorkflowLog:
                 dfEvents = dfEvents.sort_values("tick").reset_index(drop=True)
 
                 # Count sprays as single shot 
-                tick_threshold = int(self.TICK_RATE * self.DELAY_WEAPON_FIRE_RECORDING)
+                tick_threshold = int(self.TICK_RATE * self.DELAY_WEAPON_FIRE_RECORDING_SPRAY)
 
                 eventsBeforeSprayFilter = len(dfEvents) #data
 
@@ -532,58 +546,104 @@ class WorkflowLog:
     def findHighActivitySegmentsInZone(self, zone:str, roundEvents:pd.DataFrame):
         roundEvents = roundEvents.copy()
 
-        df_zone = roundEvents[roundEvents["zone"] == zone].sort_values("tick")
-        lambda_decay = np.log(2)/(self.HALF_LIFE_ACTIVTIY_POINTS *64)
-        activtiyPoints = 0
-        last_tick = roundEvents["tick"].min()
+        df_zone = roundEvents[roundEvents["zone"] == zone].copy()
+        if df_zone.empty:
+            return []
+
+        # preserve original ordering as tiebreaker for events with same tick
+        df_zone = df_zone.reset_index().rename(columns={"index": "orig_index"})
+        df_zone = df_zone.sort_values(["tick", "orig_index"]).reset_index(drop=True)
+
+        # decay per tick (use configured tick rate)
+        lambda_decay = np.log(2) / (self.HALF_LIFE_ACTIVTIY_POINTS * self.TICK_RATE)
+        activityPoints = 0.0
+        previousTick = int(df_zone["tick"].iloc[0])
         activity_over_time = []
         high_activity_segments = []
         current_segment_rows = []
-        upper_threshold = 10
-        lower_threshold = 0.75 * upper_threshold
+        upper_threshold = getattr(self, "UPPER_THRESHHOLD", 10)
+        lower_threshold = getattr(self, "LOWERTHRESHHOLD", 0.75 * upper_threshold)
         recording = False
-        peakActivity = 0
-        peak_tick = last_tick
+        peakActivity = 0.0
+        peak_tick = previousTick
 
-        for _, row in df_zone.iterrows():
-            current_tick = row["tick"]
-            dt = current_tick - last_tick
-            activtiyPoints *= np.exp(-lambda_decay * dt)
-            activtiyPoints += row["activityPoints"]
+        included_indices = set()  # avoid duplicates when backward-expanding
 
-            if activtiyPoints > peakActivity:
-                peakActivity = activtiyPoints
+        for idx, row in df_zone.iterrows():
+            current_tick = int(row["tick"])
+            dt = current_tick - previousTick
+            activityPoints *= np.exp(-lambda_decay * dt)
+            activityPoints += float(row.get("activityPoints", 0.0))
+
+            if activityPoints > peakActivity:
+                peakActivity = activityPoints
                 peak_tick = current_tick
-            last_tick = current_tick
+            previousTick = current_tick
 
             if not recording:
-                if activtiyPoints >= upper_threshold:
+                if activityPoints >= upper_threshold:
+                    # start a new segment
                     recording = True
-                    current_segment_rows = [row.to_dict()]
-            else:
-                if activtiyPoints >= lower_threshold:
+                    current_segment_rows = []
+                    included_indices = set()
+
+                    # include this row
                     current_segment_rows.append(row.to_dict())
+                    included_indices.add(idx)
+
+                    # backward-expand: include events in successive 1s windows until none found
+                    search_index = idx
+                    spike_tick = current_tick
+                    window_start = spike_tick - int(self.TICK_RATE)
+                    while True:
+                        # candidate previous rows strictly before current search index
+                        prev_mask = (df_zone["tick"] >= window_start) & (df_zone["tick"] <= spike_tick)
+                        prev_rows = df_zone[prev_mask & (df_zone.index < search_index)]
+                        # exclude already-included indices
+                        prev_rows = prev_rows[~prev_rows.index.isin(included_indices)]
+                        if prev_rows.empty:
+                            break
+
+                        # prepend prev_rows in chronological order
+                        prev_list = [prow.to_dict() for _, prow in prev_rows.sort_values(["tick", "orig_index"]).iterrows()]
+                        current_segment_rows = prev_list + current_segment_rows
+                        included_indices.update(prev_rows.index.tolist())
+
+                        # move search window to earliest included event
+                        search_index = int(prev_rows.index.min())
+                        spike_tick = int(prev_rows["tick"].min())
+                        window_start = spike_tick - int(self.TICK_RATE)
+            else:
+                if activityPoints >= lower_threshold:
+                    # continue recording
+                    # avoid duplicates (same row might have been included by backward expansion)
+                    if idx not in included_indices:
+                        current_segment_rows.append(row.to_dict())
+                        included_indices.add(idx)
                 else:
-                    high_activity_segments.append(pd.DataFrame(current_segment_rows))
+                    # finish segment
+                    if current_segment_rows:
+                        high_activity_segments.append(pd.DataFrame(current_segment_rows))
                     current_segment_rows = []
                     recording = False
+                    included_indices = set()
 
-            activity_over_time.append((current_tick, activtiyPoints, row["event"])) #plotting 
+            activity_over_time.append((current_tick, activityPoints, row.get("event")))
 
+        # flush if still recording
         if recording and current_segment_rows:
             high_activity_segments.append(pd.DataFrame(current_segment_rows))
 
+        # build plottingData (kept for compatibility)
         if activity_over_time:
             ticks_plot, activities_plot, events_plot = zip(*activity_over_time)
         else:
             ticks_plot, activities_plot, events_plot = (), (), ()
 
-
-
         plottingData = {
             "half_life_seconds": self.HALF_LIFE_ACTIVTIY_POINTS,
-            "firstTickInRound": roundEvents["tick"].min(),
-            "lastTickInRound": roundEvents["tick"].max(),
+            "firstTickInRound": int(roundEvents["tick"].min()),
+            "lastTickInRound": int(roundEvents["tick"].max()),
             "activityOverTime": activity_over_time,
             "ticks": ticks_plot,
             "activities_plot": activities_plot,
@@ -594,14 +654,11 @@ class WorkflowLog:
             "lower_threshold": lower_threshold
         }
 
-
         if self.PLOTTING:
-            if self.caseID == 0:
-                pd_copy = ensure_plotdata(plottingData, roundEvents) 
-                pd_copy.setdefault('round_number', round) 
-                pd_copy.setdefault('zone_name', zone)
-                plot_activity_with_decay(pd_copy, tick_rate=self.TICK_RATE, show_legend=True)
-                pass
+            pd_copy = ensure_plotdata(plottingData, roundEvents)
+            pd_copy.setdefault("round_number", getattr(self, "roundNumber", None))
+            pd_copy.setdefault("zone_name", zone)
+            plot_activity_with_decay(pd_copy, tick_rate=self.TICK_RATE, show_legend=True)
 
         return high_activity_segments
     def determineActivties(self, objective: pd.DataFrame):
@@ -647,21 +704,22 @@ class WorkflowLog:
             "tPoints": tPoints,
             "totalKills": totalKills,
             "totalDamage": totalDamage,
-            "seconds": (lastTick - firstTick) / self.TICK_RATE,
+            "seconds": round((lastTick - firstTick) / self.TICK_RATE, 2),
         }
     def _createLog(self, traces):
 
         log = {}
         roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
-        for (round, trace) in traces:
-            fairness, diff = roundCashSpentEvenDict[round]
+        for (roundNum, trace) in traces:
+            fairness, diff = roundCashSpentEvenDict[roundNum]
             trace_dict = {
+                    "match": self.matchNumber,
                     "trace": trace,
                     "cashFairness": fairness,
                     "cashDiff": diff,
-                    "mapEventAccuracy": round((self.allFilterDataPerRound[round-1]["FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"])),
-                    "winner": self.roundWinnerDict[round],
-                    "isPistolRound": 1 if round == 1 or round == 13 else 0
+                    "mapEventAccuracy": round((self.allFilterDataPerRound[roundNum-1]["FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"])),
+                    "winner": self.roundWinnerDict[roundNum],
+                    "isPistolRound": 1 if roundNum == 1 or roundNum == 13 else 0
                 }
             log[self.caseID] = trace_dict
             self.caseID += 1
@@ -671,7 +729,7 @@ class WorkflowLog:
         traces = []
         
         for matchNumber, match_file in enumerate(self.matches):
-            print(match_file)
+            self.matchNumber = matchNumber
             self.initParser(match_file)
             allEvents = self.prepareEvents(matchNumber)
             if isinstance(allEvents, str): #some event were missing
@@ -681,6 +739,7 @@ class WorkflowLog:
             self.roundWinnerDict = getRoundWinnerDict(self.parser)
         
             for round in range(len(self.roundWinnerDict)):
+                self.roundNumber = round
                 #is fair round
                 self.totalRounds +=1 #data
 
@@ -699,6 +758,10 @@ class WorkflowLog:
 
                 trace = []
                 for zone in self.zones:
+                    
+
+                    if self.matchNumber == 0 and self.roundNumber == 1 and zone == "Side":
+                        pass
                     objectives = self.findHighActivitySegmentsInZone(zone, roundEvents)
                     
                     for objective in objectives:
@@ -753,7 +816,5 @@ if __name__ == '__main__':
     #workflowlog.plotAllCashData()
     # Convert to pm4py EventLog
     event_log = convert_to_event_log(log)
-    # Write XES
     pm4py.write_xes(event_log, "Log.xes")
-    # Write TXT
     write_txt_log(log, "Log.txt")
