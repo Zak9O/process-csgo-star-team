@@ -186,7 +186,7 @@ def extract_flashbang_throwers(demo_path: str) -> pd.DataFrame:
 
 # EXAMPLE USAGE
 if __name__ == "__main__":
-    demo_path = "heroic-vs-3dmax-m1-dust2.dem"
+    demo_path = "demos/heroic-vs-3dmax-m1-dust2.dem"
     df_flash_throwers = extract_flashbang_throwers(demo_path)
 
     df_flash_throwers.to_csv("flashbang_throwers.csv", index=False)

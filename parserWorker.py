@@ -6,36 +6,48 @@ from pm4py.objects.log.obj import EventLog, Trace, Event
 
 def eventLogDictToPm4py(event_log_dict):
     import pandas as pd
-    from pm4py.objects.log.util import dataframe_utils
     from pm4py.objects.conversion.log import converter as log_converter
 
-    # Create list to hold all events
     all_events = []
 
     for case_id, case_data in event_log_dict.items():
-        for event in case_data["events"]:
+        case_attrs = case_data.get("attributes", {})
+        for event in case_data.get("events", []):
+            # choose activity: use place_name for moved_to_place when available
+            activity = event.get("concept:name")
+            if activity == "moved_to_place":
+                place = event.get("place_name")
+                if place is not None and not (isinstance(place, float) and pd.isna(place)) and str(place) != "":
+                    activity = place
+
             event_row = {
-                "case:concept:name": case_id,  # Changed from concept:name
-                "concept:name": event["concept:name"],
-                "time:timestamp": pd.Timestamp(event["time:tick"], unit='s')  # Convert tick to timestamp
+                "case:concept:name": case_id,
+                "concept:name": activity,
+                "time:timestamp": pd.Timestamp(event.get("time:tick"), unit="s")
             }
-            # Add any other attributes from the case
-            for key, value in case_data["attributes"].items():
-                if key != "concept:name":  # Skip concept:name as it's case-specific
+
+            # add case-level attributes (prefixed)
+            for key, value in case_attrs.items():
+                if key != "concept:name":
                     event_row[f"case:{key}"] = value
+
+            # add event-level attributes (no prefix)
+            for key, value in event.items():
+                if key in ("concept:name", "time:tick"):
+                    continue
+                event_row[key] = value
 
             all_events.append(event_row)
 
-    # Create DataFrame
     df = pd.DataFrame(all_events)
+    if df.empty:
+        return df
 
-    # Sort by case and timestamp
     df = df.sort_values(["case:concept:name", "time:timestamp"])
-
-    # Convert to event log
     event_log = log_converter.apply(df, variant=log_converter.Variants.TO_EVENT_LOG)
-
     return event_log
+
+
 
 
 def getFirstBloods(parser: DemoParser) -> DataFrame:
