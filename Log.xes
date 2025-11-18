@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<log xes.version="1849-2016" xes.features="nested-attributes" xmlns="http://www.xes-standard.org/">
+	<trace>
+		<string key="concept:name" value="Round_0" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="3" />
+		<string key="cashDiff" value="50" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="0" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<string key="ctPoints" value="16.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="116.0" />
+			<float key="seconds" value="0.95" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="331.0" />
+			<string key="tPoints" value="249.0" />
+			<float key="totalKills" value="5.0" />
+			<string key="totalDamage" value="455.0" />
+			<float key="seconds" value="13.3" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="37.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="12.0" />
+			<float key="seconds" value="0.53" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="153.0" />
+			<string key="tPoints" value="88.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="216.0" />
+			<float key="seconds" value="10.89" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="58.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="158.0" />
+			<float key="seconds" value="3.86" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_1" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="6750" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="1" />
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="243.0" />
+			<string key="tPoints" value="365.0" />
+			<float key="totalKills" value="4.0" />
+			<string key="totalDamage" value="508.0" />
+			<float key="seconds" value="17.97" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="58.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="33.0" />
+			<float key="seconds" value="0.36" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_2" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="1" />
+		<string key="cashDiff" value="8450" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="6.45" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<string key="ctPoints" value="57.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="157.0" />
+			<float key="seconds" value="1.81" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Tunnels" />
+			<string key="activtiy" value="T_Tunnels" />
+			<string key="ctPoints" value="72.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="272.0" />
+			<float key="seconds" value="13.48" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Tunnels" />
+			<string key="activtiy" value="CT_Tunnels" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="1.72" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_3" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="0" />
+		<string key="cashDiff" value="18050" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.08" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<string key="ctPoints" value="3.0" />
+			<string key="tPoints" value="274.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="227.0" />
+			<float key="seconds" value="15.17" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Catwalk" />
+			<string key="activtiy" value="CT_Catwalk" />
+			<string key="ctPoints" value="196.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="171.0" />
+			<float key="seconds" value="9.69" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.38" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="2.2" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="123.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="98.0" />
+			<float key="seconds" value="1.06" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="33.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="8.0" />
+			<float key="seconds" value="0.84" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="113.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="88.0" />
+			<float key="seconds" value="0.39" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_4" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="0" />
+		<string key="cashDiff" value="13600" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="122.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="97.0" />
+			<float key="seconds" value="0.41" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="79.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="54.0" />
+			<float key="seconds" value="1.08" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="100.0" />
+			<string key="tPoints" value="27.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="102.0" />
+			<float key="seconds" value="0.02" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Tunnels" />
+			<string key="activtiy" value="CT_Tunnels" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_5" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="3900" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="68.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="43.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="49.0" />
+			<string key="tPoints" value="32.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="31.0" />
+			<float key="seconds" value="3.47" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="93.0" />
+			<float key="totalKills" value="0.0" />
+			<string key="totalDamage" value="93.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="341.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="4.0" />
+			<string key="totalDamage" value="491.0" />
+			<float key="seconds" value="14.8" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_6" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="3750" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="0" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="174.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<string key="totalDamage" value="174.0" />
+			<float key="seconds" value="2.28" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="2.7" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="6.94" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="6.38" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Tunnels" />
+			<string key="activtiy" value="T_Tunnels" />
+			<string key="ctPoints" value="125.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="3.0" />
+			<string key="totalDamage" value="300.0" />
+			<float key="seconds" value="3.38" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_7" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="3" />
+		<string key="cashDiff" value="700" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="375.0" />
+			<float key="totalKills" value="3.0" />
+			<string key="totalDamage" value="300.0" />
+			<float key="seconds" value="9.86" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="Even_Middle" />
+			<string key="activtiy" value="Even_Middle" />
+			<string key="ctPoints" value="125.0" />
+			<string key="tPoints" value="114.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="189.0" />
+			<float key="seconds" value="8.45" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_8" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="0" />
+		<string key="cashDiff" value="19900" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_9" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="5500" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="227.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="177.0" />
+			<float key="seconds" value="1.69" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.3" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="250.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="3.97" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="73.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="48.0" />
+			<float key="seconds" value="0.31" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="7.67" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="1.59" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_10" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="1" />
+		<string key="cashDiff" value="11950" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="0" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="2.19" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="2.05" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="24.0" />
+			<string key="tPoints" value="167.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="166.0" />
+			<float key="seconds" value="11.66" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="93.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="168.0" />
+			<float key="seconds" value="2.05" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_11" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="5100" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.3" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="3.41" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<string key="ctPoints" value="15.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="115.0" />
+			<float key="seconds" value="1.19" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="4.95" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Tunnels" />
+			<string key="activtiy" value="T_Tunnels" />
+			<string key="ctPoints" value="41.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="141.0" />
+			<float key="seconds" value="0.31" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Tunnels" />
+			<string key="activtiy" value="CT_Tunnels" />
+			<string key="ctPoints" value="78.0" />
+			<string key="tPoints" value="6.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="59.0" />
+			<float key="seconds" value="2.12" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_12" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="3" />
+		<string key="cashDiff" value="50" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="160.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="110.0" />
+			<float key="seconds" value="3.97" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<string key="ctPoints" value="90.0" />
+			<string key="tPoints" value="160.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="1.78" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="51.0" />
+			<string key="tPoints" value="208.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="234.0" />
+			<float key="seconds" value="12.84" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_13" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="1" />
+		<string key="cashDiff" value="8250" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="1" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.17" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="142.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="117.0" />
+			<float key="seconds" value="2.41" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="88.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="63.0" />
+			<float key="seconds" value="0.75" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="51.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="26.0" />
+			<float key="seconds" value="0.42" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="118.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<string key="totalDamage" value="118.0" />
+			<float key="seconds" value="11.61" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="125.0" />
+			<string key="tPoints" value="88.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="188.0" />
+			<float key="seconds" value="1.75" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_14" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="1" />
+		<string key="cashDiff" value="11500" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="T_BombsiteA" />
+			<string key="activtiy" value="T_BombsiteA" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="120.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="95.0" />
+			<float key="seconds" value="0.0" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Catwalk" />
+			<string key="activtiy" value="T_Catwalk" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="101.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="76.0" />
+			<float key="seconds" value="0.19" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="5.83" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Middle" />
+			<string key="activtiy" value="T_Middle" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="95.0" />
+			<float key="totalKills" value="0.0" />
+			<string key="totalDamage" value="95.0" />
+			<float key="seconds" value="6.17" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="68.0" />
+			<string key="tPoints" value="30.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="73.0" />
+			<float key="seconds" value="5.02" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Tunnels" />
+			<string key="activtiy" value="CT_Tunnels" />
+			<string key="ctPoints" value="103.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="78.0" />
+			<float key="seconds" value="0.3" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_15" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="0" />
+		<string key="cashDiff" value="16600" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="1" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="96.0" />
+			<string key="tPoints" value="54.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="125.0" />
+			<float key="seconds" value="0.31" />
+		</event>
+		<event>
+			<string key="concept:name" value="Even_BombsiteA" />
+			<string key="activtiy" value="Even_BombsiteA" />
+			<string key="ctPoints" value="125.0" />
+			<string key="tPoints" value="141.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="216.0" />
+			<float key="seconds" value="2.38" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Catwalk" />
+			<string key="activtiy" value="CT_Catwalk" />
+			<string key="ctPoints" value="86.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="61.0" />
+			<float key="seconds" value="0.19" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="7.48" />
+		</event>
+		<event>
+			<string key="concept:name" value="Even_Side" />
+			<string key="activtiy" value="Even_Side" />
+			<string key="ctPoints" value="199.0" />
+			<string key="tPoints" value="250.0" />
+			<float key="totalKills" value="4.0" />
+			<string key="totalDamage" value="349.0" />
+			<float key="seconds" value="6.98" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_16" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="2" />
+		<string key="cashDiff" value="5850" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="0" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="Even_BombsiteA" />
+			<string key="activtiy" value="Even_BombsiteA" />
+			<string key="ctPoints" value="123.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="198.0" />
+			<float key="seconds" value="3.53" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_BombsiteA" />
+			<string key="activtiy" value="CT_BombsiteA" />
+			<string key="ctPoints" value="38.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="13.0" />
+			<float key="seconds" value="0.06" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="237.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="212.0" />
+			<float key="seconds" value="2.39" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="100.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="75.0" />
+			<float key="seconds" value="0.3" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Side" />
+			<string key="activtiy" value="CT_Side" />
+			<string key="ctPoints" value="1.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<string key="totalDamage" value="1.0" />
+			<float key="seconds" value="2.06" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<string key="ctPoints" value="71.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="171.0" />
+			<float key="seconds" value="3.27" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<string key="tPoints" value="125.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="0.3" />
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="Round_17" />
+		<int key="match" value="0" />
+		<int key="cashFairness" value="1" />
+		<string key="cashDiff" value="8650" />
+		<int key="mapEventAccuracy" value="1" />
+		<int key="winner" value="0" />
+		<int key="isPistolRound" value="0" />
+		<event>
+			<string key="concept:name" value="CT_Middle" />
+			<string key="activtiy" value="CT_Middle" />
+			<string key="ctPoints" value="250.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="2.0" />
+			<string key="totalDamage" value="200.0" />
+			<float key="seconds" value="6.06" />
+		</event>
+		<event>
+			<string key="concept:name" value="T_Side" />
+			<string key="activtiy" value="T_Side" />
+			<float key="ctPoints" value="0.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="0.0" />
+			<float key="totalDamage" value="0.0" />
+			<float key="seconds" value="1.42" />
+		</event>
+		<event>
+			<string key="concept:name" value="CT_Tunnels" />
+			<string key="activtiy" value="CT_Tunnels" />
+			<string key="ctPoints" value="125.0" />
+			<float key="tPoints" value="0.0" />
+			<float key="totalKills" value="1.0" />
+			<string key="totalDamage" value="100.0" />
+			<float key="seconds" value="4.17" />
+		</event>
+	</trace>
+</log>

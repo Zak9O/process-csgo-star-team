@@ -338,6 +338,7 @@ class WorkflowLog:
         self.HALF_LIFE_ACTIVTIY_POINTS = 3 #Im assuming 8 seconds skirmishes... is that right?
         self.UPPER_THRESHHOLD = 10 
         self.LOWERTHRESHHOLD = 0.75 * self.UPPER_THRESHHOLD
+        self.WINDOW = self.TICK_RATE
 
         #Objective winner tuning
         self.POINT_FOR_KILL = 25
@@ -560,6 +561,7 @@ class WorkflowLog:
         previousTick = int(df_zone["tick"].iloc[0])
         activity_over_time = []
         high_activity_segments = []
+        high_activity_index_sets = []  # parallel list of df_zone index sets for each saved segment
         current_segment_rows = []
         upper_threshold = getattr(self, "UPPER_THRESHHOLD", 10)
         lower_threshold = getattr(self, "LOWERTHRESHHOLD", 0.75 * upper_threshold)
@@ -567,7 +569,7 @@ class WorkflowLog:
         peakActivity = 0.0
         peak_tick = previousTick
 
-        included_indices = set()  # avoid duplicates when backward-expanding
+        included_indices = set()  # indices included in the current building segment
 
         for idx, row in df_zone.iterrows():
             current_tick = int(row["tick"])
@@ -594,14 +596,33 @@ class WorkflowLog:
                     # backward-expand: include events in successive 1s windows until none found
                     search_index = idx
                     spike_tick = current_tick
-                    window_start = spike_tick - int(self.TICK_RATE)
+                    window_start = spike_tick - int(self.WINDOW)
+
+                    merged_into_prev = False
                     while True:
-                        # candidate previous rows strictly before current search index
+                        # include events on same tick and earlier ones (index < search_index)
                         prev_mask = (df_zone["tick"] >= window_start) & (df_zone["tick"] <= spike_tick)
                         prev_rows = df_zone[prev_mask & (df_zone.index < search_index)]
                         # exclude already-included indices
                         prev_rows = prev_rows[~prev_rows.index.isin(included_indices)]
                         if prev_rows.empty:
+                            break
+
+                        # if any of prev_rows indices overlap an already-saved segment, merge and stop
+                        prev_row_indices = set(prev_rows.index.tolist())
+                        overlapping_seg_idx = None
+                        for s_i, s_idx_set in enumerate(high_activity_index_sets):
+                            if prev_row_indices & s_idx_set:
+                                overlapping_seg_idx = s_i
+                                break
+
+                        if overlapping_seg_idx is not None:
+                            # merge current included indices + prev_row_indices into the existing saved segment
+                            union_idxs = s_idx_set.union(prev_row_indices).union(included_indices)
+                            merged_df = df_zone.loc[sorted(union_idxs)].sort_values(["tick", "orig_index"]).reset_index(drop=True)
+                            high_activity_segments[overlapping_seg_idx] = merged_df
+                            high_activity_index_sets[overlapping_seg_idx] = set(df_zone.loc[merged_df.index].index.tolist()) if not merged_df.empty else set()
+                            merged_into_prev = True
                             break
 
                         # prepend prev_rows in chronological order
@@ -612,11 +633,16 @@ class WorkflowLog:
                         # move search window to earliest included event
                         search_index = int(prev_rows.index.min())
                         spike_tick = int(prev_rows["tick"].min())
-                        window_start = spike_tick - int(self.TICK_RATE)
+                        window_start = spike_tick - int(self.WINDOW)
+
+                    # if we merged into a previous segment, stop recording this new one
+                    if merged_into_prev:
+                        recording = False
+                        current_segment_rows = []
+                        included_indices = set()
             else:
                 if activityPoints >= lower_threshold:
                     # continue recording
-                    # avoid duplicates (same row might have been included by backward expansion)
                     if idx not in included_indices:
                         current_segment_rows.append(row.to_dict())
                         included_indices.add(idx)
@@ -624,6 +650,8 @@ class WorkflowLog:
                     # finish segment
                     if current_segment_rows:
                         high_activity_segments.append(pd.DataFrame(current_segment_rows))
+                        # store the set of df_zone indices for this segment for future overlap checks
+                        high_activity_index_sets.append(set(included_indices))
                     current_segment_rows = []
                     recording = False
                     included_indices = set()
@@ -633,6 +661,7 @@ class WorkflowLog:
         # flush if still recording
         if recording and current_segment_rows:
             high_activity_segments.append(pd.DataFrame(current_segment_rows))
+            high_activity_index_sets.append(set(included_indices))
 
         # build plottingData (kept for compatibility)
         if activity_over_time:
@@ -760,7 +789,7 @@ class WorkflowLog:
                 for zone in self.zones:
                     
 
-                    if self.matchNumber == 0 and self.roundNumber == 1 and zone == "Side":
+                    if self.matchNumber == 0 and self.roundNumber == 3 and zone == "Side":
                         pass
                     objectives = self.findHighActivitySegmentsInZone(zone, roundEvents)
                     
