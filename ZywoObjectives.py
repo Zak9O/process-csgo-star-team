@@ -1,14 +1,11 @@
 import os
-from demoparser2 import DemoParser
 import pandas as pd
-from typing import Dict, List, Any
-import os
-import pandas as pd
-import numpy as np
 from typing import Dict, List, Any
 from demoparser2 import DemoParser
 import numpy as np
 import matplotlib.pyplot as plt
+import pm4py
+from pm4py.objects.log.obj import EventLog, Trace, Event
 
 
 def ensure_plotdata(plotData: dict, dfEventsRound: pd.DataFrame = None, tick_rate: float = 64.0) -> dict:
@@ -65,8 +62,6 @@ def ensure_plotdata(plotData: dict, dfEventsRound: pd.DataFrame = None, tick_rat
             plotData["activityOverTime"] = []
 
     return plotData
-
-
 def plot_activity_with_decay(plotData: dict, tick_rate: float = 64.0, ax=None, show: bool = False, show_legend: bool = True, line_color=None, line_label=None):
     """Plot activity using the provided plotData dictionary.
 
@@ -181,7 +176,6 @@ def plot_activity_with_decay(plotData: dict, tick_rate: float = 64.0, ax=None, s
         ax.legend()
     if show:
         plt.show()
-
 def plot_round_objectives(plottingDataPerRound: List[Any], zones: List[str], tick_rate: float = 64.0, round_number: int = None, save_path: str = None, show_debug: bool = False):
     """Plot all objectives for a round on a single figure.
 
@@ -253,25 +247,20 @@ def plot_round_objectives(plottingDataPerRound: List[Any], zones: List[str], tic
         print(f"Saved round plot to {save_path}")
     else:
         plt.show()
-
 def getRoundWinnerDict(parser:DemoParser) -> Dict[int, str]:
     df = parser.parse_event("round_freeze_end", other=["team_rounds_total", "total_rounds_played"])
     winners: Dict[int, str] = {}
     tWinLastRound = 0
     for _, row in df.iterrows():
         round_num = int(row["total_rounds_played"])
-        if round_num == 0:
-            continue
         tWinThisRound = row["t_team_rounds_total"]
         isCTwin = tWinLastRound == tWinThisRound
         if isCTwin:
-            winners[round_num] = "CT_win"
+            winners[round_num] = 0 #CT WIN
         else:
-            winners[round_num] = "TERRORIST_win"
+            winners[round_num] = 1 #TERROIST WIN
             tWinLastRound = tWinThisRound
     return winners
-
-
 class WorkflowLog:
     def __init__(self):
 
@@ -282,12 +271,10 @@ class WorkflowLog:
         except Exception:
             raise KeyError("change self.folder_path variable, to match matches folder")
         self.parser = None
-
-
-        #Values
-        self.case = 0 #increments for each trace
+        self.roundWinnerDict = None
+        self.caseID = 0 #increments for each trace
         self.TICK_RATE = 64.0 #server tick rate
-
+        self.PLOTTING = True
 
         #Events & Activity points
         self.GAME_EVENTS = ['grenade_thrown', 'weapon_fire', 'player_hurt', 'player_death']
@@ -298,10 +285,10 @@ class WorkflowLog:
                     "player_death": 5
                 }
         
-        #plt
-        self.PLOTTING = False
+       
         
-        #Objectives mapping
+
+        #Objective mapping
         self.zones = ['BombsiteA', 'Catwalk', 'BombsiteBZone', 'Middle', 'Side', 'Tunnels']
         self.ZONE_MAP: Dict[str, str] = {
             "BombsiteA": "BombsiteA", 
@@ -333,28 +320,35 @@ class WorkflowLog:
             "LowerTunnel": "Tunnels"
         }
         
-        #Objective analysis #TODO consider changing the exponential decay to something else that fits better
-        self.HALF_LIFE_ACTIVTIY_POINTS = 3 #Im assuming 8 seconds skirmishes.
+        #Objective analysis - consider changing the exponential decay to something else that fits better
+        self.HALF_LIFE_ACTIVTIY_POINTS = 3 #Im assuming 8 seconds skirmishes... is that right?
         self.UPPER_THRESHHOLD = 10 
         self.LOWERTHRESHHOLD = 0.75 * self.UPPER_THRESHHOLD
 
+        #Objective winner tuning
+        self.POINT_FOR_KILL = 25
+        self.DAMAGE_PER_POINT_RATIO = 1
+        self.EVEN_COEFFICENT = 1.3 #if points is even by 30%, then 
+        
         #Filters & stuff
         self.DELAY_WEAPON_FIRE_RECORDING = 1 #1 sec between recording of fires events, to avoid spraying giving a lot of activtiy points
-        self.FILTER_FRACTION_EVENTS_AFTER_MAPPING = 0.90 #If filtered events are more than 10%, dont consider this level
-        self.CASH_FILTER = 1.30 #If the difference between teams cash is more than 30%, dont consider this level
         self.WEAPON_FIRE_FILTER = ["knife", "flashbang", "hegrenade", "smokegrenade", "decoy", "molotov", "incendiary"]
+
+        self.FILTER_FRACTION_EVENTS_AFTER_MAPPING_PER_ROUND = 0.90 #If filtered events are more than 10%, dont consider this level #TODO add this as trace attribute
+        self.CASH_FILTER = 1.30 #If the difference between teams cash is more than 30% in that round, dont consider it #TODO add this as trace attribute
 
         #Round data
         self.totalRounds = 0
         
         self.DIFF_GOLD = "DIFF_IN_GOLD"
         self.ROUND = "ROUND"
+        self.FAIRNESS = "FAIRNESS"
         self.allCashDataPerRound = []
         self.roundSkipDueToCash = 0
 
         self.DIFF_ACTIVITY_POINTS = "DIFF_ACTIVITY_POINTS"
         self.ROUND = "ROUND"
-        self.FILTERED = "FILTERED"
+        self.FRACTION_ACTIVITY_POINTS_BEFORE_AFTER = "FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"
         self.allFilterDataPerRound = []
         self.roundSkipDueToEventsFiltered = 0
 
@@ -364,8 +358,33 @@ class WorkflowLog:
         self.AFTER_SPRAY_FILTER = "AFTER_SPRAY_FILTER"
         self.MATCH_NUMBER = "MATCH"
         self.allMatchSprayFilterData = []
+    def plotAllCashData(self):
+        if not hasattr(self, "allCashDataPerRound") or not self.allCashDataPerRound:
+            print("No cash data to plot.")
+            return
 
+        # Extract diff gold values
+        diff_gold = [entry[self.DIFF_GOLD] for entry in self.allCashDataPerRound]
+        n_entries = len(diff_gold)
 
+        # Compute quantiles
+        q25, q50, q75 = np.percentile(diff_gold, [25, 50, 75])
+
+        # Plot diff gold over rounds
+        plt.figure(figsize=(12, 5))
+        plt.plot(range(1, n_entries + 1), diff_gold, marker='o', linestyle='-', color='blue', alpha=0.7)
+        plt.xlabel("Round entry")
+        plt.ylabel("Cash Difference (gold)")
+        plt.title("Cash Differences per Round")
+
+        # Show quantile lines
+        plt.axhline(q25, color='green', linestyle='--', label=f"25th percentile: {q25:.0f}")
+        plt.axhline(q50, color='orange', linestyle='--', label=f"50th percentile (median): {q50:.0f}")
+        plt.axhline(q75, color='red', linestyle='--', label=f"75th percentile: {q75:.0f}")
+
+        plt.legend()
+        plt.grid(True)
+        plt.show()
     def getRoundCashSpentEvenDict(self, parser: DemoParser) -> Dict[int, bool]:
     
         roundCashSpentEvenDict = {}
@@ -373,8 +392,6 @@ class WorkflowLog:
         ticks = list(df["tick"])
         dfticks = parser.parse_ticks(["team_name", "player_name", "cash_spent_this_round"], ticks = ticks)
         for roundNum, tick in enumerate(ticks):
-            if roundNum == 0:
-                continue
             tick_rows = dfticks[dfticks["tick"] == tick]      # rows for this tick
             ctRows = tick_rows[tick_rows["team_name"] == "CT"]
             tRows = tick_rows[tick_rows["team_name"] == "TERRORIST"]
@@ -382,25 +399,31 @@ class WorkflowLog:
             ctCash = ctRows["cash_spent_this_round"].sum()
             tCash = tRows["cash_spent_this_round"].sum()
 
-            if ctCash == 0 or tCash == 0:
-                isCashEven = False
-            else:
-                isCashEven = max(ctCash, tCash) < self.CASH_FILTER * min(ctCash, tCash)
+            diff = abs(ctCash - tCash)
+
+            fairness = ""
+            if diff <= 3600:
+                fairness = 3 
+            elif diff <= 7800:
+                fairness = 2
+            elif diff <= 12525:
+                fairness = 1
+            else: 
+                fairness = 0
+
+            roundCashSpentEvenDict[roundNum] = (fairness, diff)
 
             roundCashData = {
-                self.DIFF_GOLD: abs(ctCash-tCash),
-                self.ROUND: roundNum
+                self.DIFF_GOLD: diff,
+                self.ROUND: roundNum,
+                self.FAIRNESS: fairness
             }
             self.allCashDataPerRound.append(roundCashData)
-            roundCashSpentEvenDict[roundNum] = isCashEven
-
 
         return roundCashSpentEvenDict
-
     def initParser(self, match_file: str):
         full_path = os.path.join(self.folder_path, match_file)
         self.parser = DemoParser(full_path)
-
     def mapPlacesToZones(self, df: pd.DataFrame) -> pd.DataFrame:
         roundEvents = df.copy()
         placeKeys = [
@@ -430,7 +453,6 @@ class WorkflowLog:
         roundEvents = roundEvents[roundEvents["zone"] != "NO_ZONE"]
 
         return roundEvents
-
     def prepareEvents(self, matchNumber) -> pd.DataFrame:
        
         all_events = []
@@ -507,14 +529,13 @@ class WorkflowLog:
 
         allEventsDict = pd.concat(all_events)
         return allEventsDict
+    def findHighActivitySegmentsInZone(self, zone:str, roundEvents:pd.DataFrame):
+        roundEvents = roundEvents.copy()
 
-    def findHighActivitySegmentsInZone(self, zone:str, dfEventsRound:pd.DataFrame):
-        dfEventsRound = dfEventsRound.copy()
-
-        df_zone = dfEventsRound[dfEventsRound["zone"] == zone].sort_values("tick")
+        df_zone = roundEvents[roundEvents["zone"] == zone].sort_values("tick")
         lambda_decay = np.log(2)/(self.HALF_LIFE_ACTIVTIY_POINTS *64)
         activtiyPoints = 0
-        last_tick = dfEventsRound["tick"].min()
+        last_tick = roundEvents["tick"].min()
         activity_over_time = []
         high_activity_segments = []
         current_segment_rows = []
@@ -557,10 +578,12 @@ class WorkflowLog:
         else:
             ticks_plot, activities_plot, events_plot = (), (), ()
 
+
+
         plottingData = {
             "half_life_seconds": self.HALF_LIFE_ACTIVTIY_POINTS,
-            "firstTickInRound": dfEventsRound["tick"].min(),
-            "lastTickInRound": dfEventsRound["tick"].max(),
+            "firstTickInRound": roundEvents["tick"].min(),
+            "lastTickInRound": roundEvents["tick"].max(),
             "activityOverTime": activity_over_time,
             "ticks": ticks_plot,
             "activities_plot": activities_plot,
@@ -571,40 +594,42 @@ class WorkflowLog:
             "lower_threshold": lower_threshold
         }
 
-        return high_activity_segments, plottingData
 
+        if self.PLOTTING:
+            if self.caseID == 0:
+                pd_copy = ensure_plotdata(plottingData, roundEvents) 
+                pd_copy.setdefault('round_number', round) 
+                pd_copy.setdefault('zone_name', zone)
+                plot_activity_with_decay(pd_copy, tick_rate=self.TICK_RATE, show_legend=True)
+                pass
+
+        return high_activity_segments
     def determineActivties(self, objective: pd.DataFrame):
         df = objective.copy()
+        
         zone = df["zone"].iloc[0]
-        ctPoints = tPoints = 0.0
-
         kills = df[df["event"] == "player_death"]
         ctKills = tKills = 0.0
         for _, row in kills.iterrows():
             if row["attacker_team_name"] == "TERRORIST":
-                tKills += 1.0
+                tKills += 1
             else:
-                ctKills += 1.0
-        ctPoints += ctKills
-        tPoints += tKills
+                ctKills += 1
+        
 
+        ctDamage = tDamage = 0.0
         damagedf = df[df["event"] == "player_hurt"]
         for _, row in damagedf.iterrows():
-            damage = np.minimum(row["damage_capped"], row["user_health"])
+            damage = np.minimum(row["damage_capped"], row["user_health"]) * self.DAMAGE_PER_POINT_RATIO
             if row["attacker_team_name"] == "TERRORIST":
-                tPoints += damage / 100
+                tDamage += damage
             else:
-                ctPoints += damage / 100
-
-        SIGNIFICANT_DAMAGE_THRESHOLD = 50.0
-        totalKills = ctKills + tKills
-        totalDamage = ctPoints + tPoints
-        if totalKills == 0 and totalDamage < SIGNIFICANT_DAMAGE_THRESHOLD:
-            return None
-
-        isEven = max(ctPoints, tPoints) < 1.3 * min(ctPoints, tPoints)
+                ctDamage += damage 
+        
+        ctPoints = ctKills * self.POINT_FOR_KILL + (ctDamage) 
+        tPoints = tKills * self.POINT_FOR_KILL + (tDamage)
+        isEven = max(ctPoints, tPoints) < self.EVEN_COEFFICENT * min(ctPoints, tPoints)
         ctWin = ctPoints > tPoints
-
         if isEven:
             activity = f"Even_{zone}"
         elif ctWin:
@@ -612,125 +637,123 @@ class WorkflowLog:
         else:
             activity = f"T_{zone}"
 
+        firstTick = min(df["tick"])
+        lastTick = max(df["tick"])
+        totalKills = tKills + ctKills
+        totalDamage = ctDamage + tDamage
         return {
-            "concept:name": activity,
+            "activtiy": activity,
             "ctPoints": ctPoints,
-            "tPoints": tPoints
+            "tPoints": tPoints,
+            "totalKills": totalKills,
+            "totalDamage": totalDamage,
+            "seconds": (lastTick - firstTick) / self.TICK_RATE,
         }
+    def _createLog(self, traces):
 
-    def createLog(self):
         log = {}
+        roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
+        for (round, trace) in traces:
+            fairness, diff = roundCashSpentEvenDict[round]
+            trace_dict = {
+                    "trace": trace,
+                    "cashFairness": fairness,
+                    "cashDiff": diff,
+                    "mapEventAccuracy": round((self.allFilterDataPerRound[round-1]["FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"])),
+                    "winner": self.roundWinnerDict[round],
+                    "isPistolRound": 1 if round == 1 or round == 13 else 0
+                }
+            log[self.caseID] = trace_dict
+            self.caseID += 1
+
+        return log
+    def createLog(self):
+        traces = []
+        
         for matchNumber, match_file in enumerate(self.matches):
+            print(match_file)
             self.initParser(match_file)
             allEvents = self.prepareEvents(matchNumber)
             if isinstance(allEvents, str): #some event were missing
                 print(f"{allEvents} event were missing in {match_file}")
                 continue
 
-            roundWinnerDict = getRoundWinnerDict(self.parser)
-            roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
-            for round in range(1, len(roundWinnerDict)+1):
+            self.roundWinnerDict = getRoundWinnerDict(self.parser)
+        
+            for round in range(len(self.roundWinnerDict)):
                 #is fair round
                 self.totalRounds +=1 #data
-                isCashSpentEven = roundCashSpentEvenDict[round]
-                if isCashSpentEven:
-                    self.roundSkipDueToCash +=1 #data
-                    continue
-                    
+
                 #is mapping good enough
                 roundEvents = allEvents[allEvents["total_rounds_played"] == round]
                 before = roundEvents["activityPoints"].sum()
                 roundEvents = self.mapPlacesToZones(roundEvents)
                 after = roundEvents["activityPoints"].sum()
-                fractionKept = after/before 
-                
+                fractionBeforeAfter = after/before 
                 filterData = { #data
                     self.DIFF_ACTIVITY_POINTS: abs(before-after),
-                    self.FILTERED: fractionKept > self.FILTER_FRACTION_EVENTS_AFTER_MAPPING,
+                    self.FRACTION_ACTIVITY_POINTS_BEFORE_AFTER: fractionBeforeAfter,
                     self.ROUND: round
                 }
                 self.allFilterDataPerRound.append(filterData) #data
 
-                notEnoughEvents = not fractionKept > self.FILTER_FRACTION_EVENTS_AFTER_MAPPING
-                if notEnoughEvents: 
-                    self.roundSkipDueToEventsFiltered +=1 #data
-                    continue
-            
                 trace = []
                 for zone in self.zones:
-                    objectives, plotData = self.findHighActivitySegmentsInZone(zone, roundEvents)
+                    objectives = self.findHighActivitySegmentsInZone(zone, roundEvents)
                     
-                    if self.PLOTTING:
-                        
-                        if plotData is None: 
-                            continue
-                        
-
-                        pd_copy = ensure_plotdata(plotData, roundEvents) 
-                        pd_copy.setdefault('round_number', round) 
-                        pd_copy.setdefault('zone_name', zone)
-                        plot_activity_with_decay(pd_copy, tick_rate=self.TICK_RATE, show_legend=False)
-
                     for objective in objectives:
                         activity_dict = self.determineActivties(objective)
                         if activity_dict:
                             trace.append(activity_dict)
 
-                if trace:
-                    trace_dict = {
-                        "match": matchNumber,
-                        "trace": trace,
-                        "roundAttributes": roundWinnerDict[round]
-                    }
-                    self.case += 1
-                    log[self.case] = trace_dict
+                traces.append((round, trace))
+            break
+        
 
 
-        return log
-
-
-import pm4py
-from pm4py.objects.log.obj import EventLog, Trace, Event
+        return self._createLog(traces)
 def convert_to_event_log(log_dict):
     event_log = EventLog()
 
     for case_id, case_data in log_dict.items():
         trace = Trace()
         trace.attributes["concept:name"] = f"Round_{case_id}"
-        trace.attributes["round_winner"] = case_data["roundAttributes"]
+        
+        for attribute, value in case_data.items():
+                if attribute != "trace":
+                    trace.attributes[attribute] = value
 
-        for ev in case_data["trace"]:
+        for activity in case_data["trace"]:
             event = Event()
-
-            # Event name (mandatory)
-            event["concept:name"] = ev.get("concept:name", "UnknownActivity")
-
-            # Copy all attributes
-            for k, v in ev.items():
-                if k != "concept:name":
-                    event[k] = v
-
+            event["concept:name"] = activity["activtiy"]
+            for attribute, value in activity.items():
+                if attribute != "activity":
+                    event[attribute] = value
             trace.append(event)
-
         event_log.append(trace)
-
     return event_log
 def write_txt_log(log_dict, path):
-    with open(path, "w") as f:
+    import json
+    with open(path, "w", encoding="utf-8") as f:
         for case_id, case_data in log_dict.items():
-            f.write(f"Case {case_id} (Winner: {case_data['roundAttributes']}):\n")
-            for ev in case_data["trace"]:
-                f.write("  - " + str(ev) + "\n")
+            f.write(f"Case {case_id}: \n")
+            for attribute, value in case_data.items():
+                    if attribute != "trace":
+                        f.write(f"{attribute}: {value}\n")
+            for event in case_data.get("trace", []):
+                try:
+                    f.write("  - " + json.dumps(event, default=str) + "\n")
+                except Exception:
+                    f.write("  - " + str(event) + "\n")
             f.write("\n")
 
 if __name__ == '__main__':
     workflowlog = WorkflowLog()
     log = workflowlog.createLog()
+    #workflowlog.plotAllCashData()
     # Convert to pm4py EventLog
     event_log = convert_to_event_log(log)
-
     # Write XES
     pm4py.write_xes(event_log, "Log.xes")
-
     # Write TXT
     write_txt_log(log, "Log.txt")
