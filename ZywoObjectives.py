@@ -7,6 +7,110 @@ import matplotlib.pyplot as plt
 import pm4py
 from pm4py.objects.log.obj import EventLog, Trace, Event
 
+# ...existing code...
+def plot_player_positions_by_place(parser: DemoParser, ticks: List[int] = None, ax=None, save_path: str = None, annotate: bool = False):
+    """
+    Plot player X/Y coordinates colored by last_place_name using a colorblind-friendly pastel palette.
+    """
+    import matplotlib.pyplot as plt
+    import matplotlib.cm as cm
+    import matplotlib.colors as mcolors
+
+    # request ticks optionally
+    try:
+        if ticks:
+            df = parser.parse_ticks(["last_place_name", "X", "Y", "player_name"], ticks=ticks)
+        else:
+            df = parser.parse_ticks(["last_place_name", "X", "Y", "player_name"])
+    except Exception as e:
+        raise RuntimeError(f"parse_ticks failed: {e}")
+
+    if df is None or df.empty:
+        raise RuntimeError("No tick data returned from parser.parse_ticks")
+
+    col_map = {c.lower(): c for c in df.columns}
+    place_col = col_map.get("last_place_name", col_map.get("place", None))
+    x_col = col_map.get("x", col_map.get("X", None))
+    y_col = col_map.get("y", col_map.get("Y", None))
+    player_col = col_map.get("player_name", None)
+
+    if place_col is None or x_col is None or y_col is None:
+        raise RuntimeError("Required columns ('last_place_name','X','Y') not found in parsed tick data")
+
+    df[x_col] = pd.to_numeric(df[x_col], errors="coerce")
+    df[y_col] = pd.to_numeric(df[y_col], errors="coerce")
+    df = df.dropna(subset=[x_col, y_col])
+
+    # unique places
+    places = list(df[place_col].fillna("NO_PLACE").unique())
+    n_places = len(places)
+
+    # get a categorical palette (prefer colorblind); then lighten each color by mixing with white
+    try:
+        import seaborn as sns
+        base_palette = sns.color_palette("colorblind", n_places)
+    except Exception:
+        cmap = plt.get_cmap("tab20")
+        base_palette = [cmap(i % cmap.N) for i in range(n_places)]
+
+    def lighten_color(rgb_tuple, amount=0.55):
+        # mix color with white to make it pastel/lighter
+        r, g, b = mcolors.to_rgb(rgb_tuple)
+        r_l = r * (1 - amount) + amount
+        g_l = g * (1 - amount) + amount
+        b_l = b * (1 - amount) + amount
+        return (r_l, g_l, b_l)
+
+    color_list = [mcolors.to_hex(lighten_color(c, amount=0.55)) for c in base_palette]
+
+    # markers to help non-color cues (cycle if necessary)
+    markers = ["o", "s", "D", "^", "v", "<", ">", "P", "X", "*"]
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(10, 8))
+
+    # draw points with thin black edge for contrast; use slightly larger alpha to keep colors readable
+    for i, place in enumerate(sorted(places)):
+        mask = df[place_col].fillna("NO_PLACE") == place
+        col = color_list[i % len(color_list)]
+        marker = markers[i % len(markers)]
+        ax.scatter(df.loc[mask, x_col], df.loc[mask, y_col],
+                   s=48, facecolor=col, marker=marker, edgecolor='k', linewidth=0.3, label=str(place), alpha=0.95)
+
+    if annotate and player_col in df.columns:
+        for _, r in df.iterrows():
+            ax.text(r[x_col], r[y_col], str(r.get(player_col, "")), fontsize=6, alpha=0.9)
+
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_title("Player positions colored by place (colorblind-friendly, pastel)")
+    ax.set_aspect("equal", adjustable="box")
+
+    # build legend sorted alphabetically by label
+    handles, labels = ax.get_legend_handles_labels()
+    if labels:
+        sorted_pairs = sorted(zip(labels, handles), key=lambda x: x[0].lower())
+        sorted_labels, sorted_handles = zip(*sorted_pairs)
+        leg = ax.legend(sorted_handles, sorted_labels, markerscale=1.2, bbox_to_anchor=(1.02, 1), loc="upper left", borderaxespad=0.)
+        lh_list = getattr(leg, "legend_handles", None) or getattr(leg, "legendHandles", None) or []
+        for lh in lh_list:
+            try:
+                lh.set_alpha(1.0)
+                lh.set_edgecolor("k")
+            except Exception:
+                pass
+
+    plt.tight_layout()
+    if save_path:
+        plt.savefig(save_path, dpi=200)
+        plt.close(ax.figure)
+        return None
+
+    plt.show()
+    return ax
+# ...existing code...
+
+
+
 
 def ensure_plotdata(plotData: dict, dfEventsRound: pd.DataFrame = None, tick_rate: float = 64.0) -> dict:
     """Ensure the plotData dict contains all keys needed by the plotting functions.
@@ -297,40 +401,42 @@ class WorkflowLog:
                     "player_hurt": (1,10), #at least 1, at most 10, scaling with damage
                     "player_death": 5
                 }
-        
-       
-        
 
         #Objective mapping
         self.zones = ['BombsiteA', 'Catwalk', 'BombsiteBZone', 'Middle', 'Side', 'Tunnels']
         self.ZONE_MAP: Dict[str, str] = {
-            "BombsiteA": "BombsiteA", 
+            #overall 
+            # 1: "BombsiteA"
+            # 2: "BombsiteB"
+            # 3: "TopMid"
+            # 4: "CTSpawn"
+            # 5: "Tunnels"
+            # 6: "Middle"
+            # 7: "LongA"
+
             "ARamp": "BombsiteA", 
-            "UnderA": "BombsiteA", 
-            
-            "CTSpawn": "BombsiteA",
-            "ShortStairs": "Catwalk", 
-            "Catwalk": "Catwalk",
-
+            "BDoors": "TopMid",
+            "BombsiteA": "BombsiteA", 
             "BombsiteB": "BombsiteB", 
-            "BDoors": "BombsiteB",
-
-            "Bucket": "Middle", 
-            "OutsideTunnel": "Middle", 
-            "Middle": "Middle", 
-            "MidDoors": "Middle", 
+            "Catwalk": "Middle",
+            "CTSpawn": "CTSpawn",
+            "ExtendedA": "BombsiteA", 
+            "Hole": "BombsiteB",
+            "LongA": "LongA",
+            "LongDoors": "LongA",
+            "LowerTunnel": "Middle",
+            "Middle": "Middle",
+            "MidDoors": "TopMid",
+            "OutSideLong": "LongA",
+            "OutSideTunnels": "Tunnels",
+            "Pit": "LongA",
+            "ShortStairs": "BombsiteA",
+            "Side": "LongA",
             "TopofMid": "Middle",
-
-            "ExtendedA": "Side", 
-            "LongA": "Side", 
-            "LongDoors": "Side", 
-            "OutsideLong": "Side", 
-            "Pit": "Side", 
-            "Side": "Side",
-
-            "TunnelStairs": "Tunnels", 
-            "UpperTunnel": "Tunnels", 
-            "LowerTunnel": "Tunnels"
+            "TRamp": "Tunnels",
+            "TSpawn": "Tunnels",
+            "UnderA": "BombsiteA",
+            "UpperTunnel": "Tunnels"
         }
         
         #Objective analysis - consider changing the exponential decay to something else that fits better
@@ -342,14 +448,14 @@ class WorkflowLog:
         #Objective winner tuning
         self.POINT_FOR_KILL = 50
         self.DAMAGE_PER_POINT_RATIO = 1
-        self.EVEN_COEFFICENT = 1.3 #if points is even by 30%, then 
+        self.EVEN_COEFFICENT = 1.3 #if points is even by 30%, then  #TODO fix when 0 dmg 0 kills
         
         #Filters & stuff
         self.DELAY_WEAPON_FIRE_RECORDING_SPRAY = 1 #1 sec between recording of fires events, to avoid spraying giving a lot of activtiy points
         self.WEAPON_FIRE_FILTER = ["knife", "flashbang", "hegrenade", "smokegrenade", "decoy", "molotov", "incendiary"]
 
-        self.FILTER_FRACTION_EVENTS_AFTER_MAPPING_PER_ROUND = 0.90 #If filtered events are more than 10%, dont consider this level #TODO add this as trace attribute
-        self.CASH_FILTER = 1.30 #If the difference between teams cash is more than 30% in that round, dont consider it #TODO add this as trace attribute
+        self.FILTER_FRACTION_EVENTS_AFTER_MAPPING_PER_ROUND = 0.90 #If filtered events are more than 10%, dont consider this level 
+        self.CASH_FILTER = 1.30 #If the difference between teams cash is more than 30% in that round, dont consider it
 
         #Round data
         self.totalRounds = 0
@@ -734,7 +840,6 @@ class WorkflowLog:
             "totalDamage": totalDamage,
             "seconds": round((lastTick - firstTick) / self.TICK_RATE, 2),
         }
-    
     def _createLog(self, traces):
         log = {}
         for (roundNum, trace, roundWinnerDict, roundCashSpentEvenDict) in traces:
@@ -751,8 +856,6 @@ class WorkflowLog:
             log[self.caseID] = trace_dict
             self.caseID += 1
         return log
-    
-
     def createLog(self):
         traces = []
         
@@ -765,10 +868,8 @@ class WorkflowLog:
                 print(f"{allEvents} event were missing in {match_file}")
                 continue
             
-            #matchwise
             roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
             roundWinnerDict = getRoundWinnerDict(self.parser)
-
             for round in range(len(roundWinnerDict)):
                 self.roundNumber = round
                 self.totalRounds +=1 #data
@@ -788,10 +889,8 @@ class WorkflowLog:
 
                 trace = []
                 for zone in self.zones:
-                    
-
-                    if self.matchNumber == 0 and self.roundNumber == 3 and zone == "Side":
-                        pass
+                    # if self.matchNumber == 0 and self.roundNumber == 3 and zone == "Side":
+                    #     pass
                     objectives = self.findHighActivitySegmentsInZone(zone, roundEvents)
                     
                     for objective in objectives:
@@ -799,30 +898,47 @@ class WorkflowLog:
                         if activity_dict:
                             trace.append(activity_dict)
                 traces.append((round, trace, roundWinnerDict, roundCashSpentEvenDict))
+        
+            if matchNumber == 2:
+                break
         return self._createLog(traces)
-    
 def convert_to_event_log(log_dict):
     event_log = EventLog()
-
     for case_id, case_data in log_dict.items():
         trace = Trace()
         trace.attributes["concept:name"] = f"Round_{case_id}"
-        
-        for attribute, value in case_data.items():
-                if attribute != "trace":
-                    trace.attributes[attribute] = value
 
-        for activity in case_data["trace"]:
+        # collect trace-level attributes (everything that's not the "trace" list)
+        trace_level_attrs = {k: v for k, v in case_data.items() if k != "trace"}
+
+        # also keep them on the trace object for compatibility
+        for attribute, value in trace_level_attrs.items():
+            trace.attributes[attribute] = value
+
+        # create events and copy trace-level attrs into each event, then overlay activity attrs
+        for activity in case_data.get("trace", []):
             event = Event()
-            event["concept:name"] = activity["activtiy"]
-            for attribute, value in activity.items():
-                if attribute != "activity":
+            # base event name from activity fields (support misspellings)
+            event_name = activity.get("activtiy") or activity.get("activity") or activity.get("concept:name") or "UnknownActivity"
+            event["concept:name"] = event_name
+
+            # copy trace-level attributes into event first
+            for attribute, value in trace_level_attrs.items():
+                try:
                     event[attribute] = value
+                except Exception:
+                    event[attribute] = str(value)
+
+            # then copy activity-specific attributes (these overwrite trace-level ones)
+            for attribute, value in activity.items():
+                try:
+                    event[attribute] = value
+                except Exception:
+                    event[attribute] = str(value)
             trace.append(event)
+
         event_log.append(trace)
     return event_log
-
-
 def write_txt_log(log_dict, path):
     import json
     with open(path, "w", encoding="utf-8") as f:
@@ -839,10 +955,9 @@ def write_txt_log(log_dict, path):
             f.write("\n")
 
 if __name__ == '__main__':
+
     workflowlog = WorkflowLog()
     log = workflowlog.createLog()
-    #workflowlog.plotAllCashData()
-    # Convert to pm4py EventLog
     event_log = convert_to_event_log(log)
     pm4py.write_xes(event_log, "Log.xes")
     write_txt_log(log, "Log.txt")
