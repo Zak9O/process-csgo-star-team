@@ -55,6 +55,8 @@ class Parser:
         )
 
         self.events_death = self.parser.parse_event("player_death")
+        self.rounds = 0 
+        self.traces = 0
 
     def parse(self) -> list[Case]:
         print(f"Parsing {self.path}")
@@ -82,20 +84,31 @@ class Parser:
                 ],
                 ticks=range(start, end + 1),
             )
+            bomb_site = self.get_bomb_site(round, df)
             events_death = self.filter_deahts(start, end)
             round_end_reason = self.get_reason(round)
             incident_parser = IncidentParser(
-                df, events_death, round_end_reason, end + 1, self.decorator
+                df, events_death, round_end_reason, end + 1, self.decorator, bomb_site
             )
             try:
                 trace = incident_parser.parse()
                 traces.extend(trace)
+                self.rounds += 1
+                self.traces += len(trace)
                 print(f"  Parsed round {round}")
             except Exception as e:
                 print("------------- An Error occured!!! -------------")
                 print(e)
 
+        print(f"Parsed {self.rounds} rounds with {self.traces} traces")
         return traces
+
+    def get_bomb_site(self, round: int, df: pd.DataFrame) -> str:
+        bomb_planter = self.events_bomb_planted[
+            self.events_bomb_planted["total_rounds_played"] == round
+        ].iloc[0]['user_name']
+        bomb_site = df[df['name'] == bomb_planter].iloc[0]['last_place_name']
+        return bomb_site
 
     def filter_deahts(self, start: int, end: int) -> pd.DataFrame:
         return self.events_death[
@@ -134,6 +147,7 @@ class IncidentParser:
         round_end_reason: str,
         end: int,
         decorator: Decorator,
+        bomb_site: str,
     ) -> None:
         self.df: pd.DataFrame = df
         self.terrorits_alive_at_begining, self.ct_alive_at_begining = (
@@ -147,6 +161,7 @@ class IncidentParser:
         # Added for execution speed
         self.is_player_alive_at_begining = self.get_alive_at_begining_dict()
         self.end = end
+        self.bomb_site = bomb_site
 
     def parse(self) -> list[Case]:
         cases: list[Case] = []
@@ -166,6 +181,7 @@ class IncidentParser:
                 df = pd.concat([df, round_end_activity], ignore_index=True)
 
             case_attributes = self.get_case_attributes(player)
+            case_attributes['bomb_site'] = self.bomb_site
 
             case_parser = CaseParser(df, case_attributes, self.decorator)
             case = case_parser.parse()
@@ -197,7 +213,7 @@ class IncidentParser:
             "tick": [self.end],
         }
         return pd.DataFrame(data)
-    
+
     def get_death_activity(self, player: str) -> pd.DataFrame:
         died_at_tick = self.events_death[self.events_death["user_name"] == player][
             "tick"
@@ -286,6 +302,8 @@ def create_event_log(cases: list[Case]) -> EventLog:
 
             event["time:timestamp"] = timestamp.isoformat(timespec="milliseconds")
             for attr, value in activity.attributes.items():
+                event[attr] = value
+            for attr, value in case.attributes.items():
                 event[attr] = value
 
             trace.append(event)
