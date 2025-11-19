@@ -1,71 +1,65 @@
-from datetime import datetime, timedelta
 import pm4py
 from pm4py.objects.log.obj import EventLog, Trace, Event
-from collections import defaultdict
 
-
-def creatXes(
-    rounds,
-    ticks_per_sec: int = 64,
-    # base_datetime: datetime = None,
-    output_xes_file: str = "csgo_EventLog.xes",
-):
-
-    # Overall event log
+def CreateXES(rounds, output_xes_file: str = "csgo_EventLog.xes"):
     event_log = EventLog()
     event_log.attributes["concept:name"] = "csgo_demo_log"
 
-    player_events = defaultdict(list)
-
-    # Walk rounds like before, but instead of immediately appending to a Trace,
-    # buffer them per player.
     for i, round_data in enumerate(rounds):
-        round_idx = i + 1
-        # Go through ticks in chronological order
-        for tick in sorted(round_data.keys()):
-
-            activities = round_data[tick]
-            for activity in activities:
-                playername, field_name, field_value = activity
-
-                player_events[playername].append(
-                    (round_idx, tick, field_name, field_value)
-                )
-
-    # Now build one Trace per player from player_events
-    for playername, ev_list in player_events.items():
-        ev_list_sorted = sorted(ev_list, key=lambda x: x[0])
-
         trace = Trace()
+        trace.attributes["concept:name"] = f"round_{i + 1}"
 
-        # Trace (case) attributes
-        trace.attributes["player"] = playername
-        trace.attributes["concept:name"] = playername  # what RuM will show as case id
+        for tick in sorted(round_data.keys()):
+            for activity in round_data[tick]:
+                # support both 3-tuple and 4-tuple activity items
+                if len(activity) == 3:
+                    playername, field_name, field_value = activity
+                    extra = None
+                elif len(activity) == 4:
+                    playername, field_name, field_value, extra = activity
+                else:
+                    # unexpected shape; try a graceful fallback
+                    playername = activity[0] if len(activity) > 0 else None
+                    field_name = activity[1] if len(activity) > 1 else "unknown"
+                    field_value = activity[2] if len(activity) > 2 else str(activity)
+                    extra = activity[3] if len(activity) > 3 else None
 
-        # Add each recorded event for this player
-        for (round_idx, tick, field_name, field_value) in ev_list_sorted:
-            ev = Event()
+                ev = Event()
+                ev["concept:name"] = field_value
+                ev["tick"] = tick
 
-            # Standard / required attributes
-            # concept:name = the "activity label"
-            # Here we keep your previous choice: use the observed value as the activity label.
-            # Example: last_place_name == "LongA" becomes an activity named "LongA".
-            ev["concept:name"] = field_value
-            ev["concept:playername"] = playername
+                # handle extra metadata
+                if extra is not None:
+                    if isinstance(extra, dict):
+                        for k, v in extra.items():
+                            key = f"{k}"
+                            try:
+                                ev[key] = str(v)
+                            except Exception:
+                                ev[key] = str(v)
+                    else:
+                        # field-specific key selection
+                        if field_name in ("weapon_damage", "utility_damage"):
+                            try:
+                                ev["damage_taken"] = str(extra)
+                            except Exception:
+                                ev["damage_taken"] = extra
+                        elif field_name == "round_end":
+                            # round_end keeps winner_spent
+                            try:
+                                ev["winner_spent"] = str(extra)
+                            except Exception:
+                                ev["winner_spent"] = extra
+                        else:
+                            # generic fallback
+                            try:
+                                ev["extra"] = str(extra)
+                            except Exception:
+                                ev["extra"] = extra
 
-            # Extra context you might want during analysis
-            ev["time:tick"] = tick          # raw demo tick
-            ev["round"] = round_idx         # which round this happened in
-
-            # If you also care about which "field" changed (e.g. last_place_name),
-            # keep it as an attribute:
-            ev["activity:type"] = field_name
-
-            trace.append(ev)
+                trace.append(ev)
 
         event_log.append(trace)
 
-    # Finally, write the XES log to disk
     pm4py.write_xes(event_log, output_xes_file)
-
     return event_log

@@ -1,0 +1,390 @@
+====327====
+place_name                     TSpawn
+classname                      env_cs_place
+origin                         -624.000000 -936.000000 120.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:2
+model                          maps/de_dust2/entities/unnamed_2_23516_2.vmdl
+
+====328====
+place_name                     TSpawn
+classname                      env_cs_place
+origin                         -1328.000000 -392.000000 200.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:7
+model                          maps/de_dust2/entities/unnamed_2_23516_7.vmdl
+
+====329====
+place_name                     TRamp
+classname                      env_cs_place
+origin                         -2036.000000 -583.999939 136.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:9
+model                          maps/de_dust2/entities/unnamed_2_23516_9.vmdl
+
+====330====
+place_name                     OutsideTunnel
+classname                      env_cs_place
+origin                         -1632.000000 288.000000 156.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:11
+model                          maps/de_dust2/entities/unnamed_2_23516_11.vmdl
+
+====331====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1660.000000 832.000000 140.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:13
+model                          maps/de_dust2/entities/unnamed_2_23516_13.vmdl
+
+====332====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1744.000000 1224.000000 216.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:15
+model                          maps/de_dust2/entities/unnamed_2_23516_15.vmdl
+
+====333====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1232.000000 1220.000000 220.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:17
+model                          maps/de_dust2/entities/unnamed_2_23516_17.vmdl
+
+====334====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1164.000000 1236.000000 220.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:19
+model                          maps/de_dust2/entities/unnamed_2_23516_19.vmdl
+
+====335====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1236.000000 1164.000000 216.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:21
+model                          maps/de_dust2/entities/unnamed_2_23516_21.vmdl
+
+====336====
+place_name                     TunnelStairs
+wait                           1
+spawnflags                     4097
+startdisabled                  0
+uselocaloffset                 0
+classname                      env_cs_place
+origin                         -1220.000000 1088.000000 204.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:23
+model                          maps/de_dust2/entities/unnamed_2_23516_23.vmdl
+
+====337====
+place_name                     TunnelStairs
+classname                      env_cs_place
+origin                         -1124.000000 1104.000000 208.000031
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:25
+model                          maps/de_dust2/entities/unnamed_2_23516_25.vmdl
+
+====338====
+place_name                     TunnelStairs
+classname                      env_cs_place
+origin                         -1088.000000 1160.000000 212.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:27
+model                          maps/de_dust2/entities/unnamed_2_23516_27.vmdl
+
+====339====
+place_name                     LowerTunnel
+classname                      env_cs_place
+origin                         -872.000000 1408.000000 0.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:29
+model                          maps/de_dust2/entities/unnamed_2_23516_29.vmdl
+
+====340====
+place_name                     Middle
+classname                      env_cs_place
+origin                         -384.000000 1136.000000 60.000031
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:31
+model                          maps/de_dust2/entities/unnamed_2_23516_31.vmdl
+
+====341====
+place_name                     TopofMid
+classname                      env_cs_place
+origin                         -348.000000 76.000000 272.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:33
+model                          maps/de_dust2/entities/unnamed_2_23516_33.vmdl
+
+====342====
+place_name                     OutsideLong
+classname                      env_cs_place
+origin                         416.000000 -188.000000 124.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:35
+model                          maps/de_dust2/entities/unnamed_2_23516_35.vmdl
+
+====343====
+place_name                     OutsideLong
+classname                      env_cs_place
+origin                         272.000000 364.000000 124.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:37
+model                          maps/de_dust2/entities/unnamed_2_23516_37.vmdl
+
+====344====
+place_name                     LongDoors
+classname                      env_cs_place
+origin                         876.000000 732.000000 128.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:39
+model                          maps/de_dust2/entities/unnamed_2_23516_39.vmdl
+
+====345====
+place_name                     LongDoors
+classname                      env_cs_place
+origin                         1096.000000 220.000000 132.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:41
+model                          maps/de_dust2/entities/unnamed_2_23516_41.vmdl
+
+====346====
+place_name                     LongA
+classname                      env_cs_place
+origin                         1428.000000 1544.000000 124.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:43
+model                          maps/de_dust2/entities/unnamed_2_23516_43.vmdl
+
+====347====
+place_name                     LongA
+classname                      env_cs_place
+origin                         1700.000000 1976.000000 128.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:45
+model                          maps/de_dust2/entities/unnamed_2_23516_45.vmdl
+
+====348====
+place_name                     ARamp
+classname                      env_cs_place
+origin                         1460.000000 2696.000000 124.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:47
+model                          maps/de_dust2/entities/unnamed_2_23516_47.vmdl
+
+====349====
+place_name                     BombsiteA
+classname                      env_cs_place
+origin                         1040.000000 2752.000000 176.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:49
+model                          maps/de_dust2/entities/unnamed_2_23516_49.vmdl
+
+====350====
+place_name                     BombsiteA
+classname                      env_cs_place
+origin                         1156.000000 2356.000000 176.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:51
+model                          maps/de_dust2/entities/unnamed_2_23516_51.vmdl
+
+====351====
+place_name                     UnderA
+classname                      env_cs_place
+origin                         892.000000 2156.000000 88.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:53
+model                          maps/de_dust2/entities/unnamed_2_23516_53.vmdl
+
+====352====
+place_name                     UnderA
+classname                      env_cs_place
+origin                         784.000000 2352.000000 168.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:55
+model                          maps/de_dust2/entities/unnamed_2_23516_55.vmdl
+
+====353====
+place_name                     ExtendedA
+classname                      env_cs_place
+origin                         528.000000 2592.000000 212.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:57
+model                          maps/de_dust2/entities/unnamed_2_23516_57.vmdl
+
+====354====
+place_name                     ExtendedA
+classname                      env_cs_place
+origin                         396.000000 2180.000000 212.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:59
+model                          maps/de_dust2/entities/unnamed_2_23516_59.vmdl
+
+====355====
+place_name                     ShortStairs
+classname                      env_cs_place
+origin                         384.000000 1644.000000 160.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:61
+model                          maps/de_dust2/entities/unnamed_2_23516_61.vmdl
+
+====356====
+place_name                     Catwalk
+classname                      env_cs_place
+origin                         0.000000 1460.000000 164.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:63
+model                          maps/de_dust2/entities/unnamed_2_23516_63.vmdl
+
+====357====
+place_name                     Catwalk
+classname                      env_cs_place
+origin                         -164.000000 1044.000000 164.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:65
+model                          maps/de_dust2/entities/unnamed_2_23516_65.vmdl
+
+====358====
+place_name                     MidDoors
+classname                      env_cs_place
+origin                         -384.000000 2036.000122 96.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:67
+model                          maps/de_dust2/entities/unnamed_2_23516_67.vmdl
+
+====359====
+place_name                     MidDoors
+classname                      env_cs_place
+origin                         -628.000000 2128.000000 99.999992
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:69
+model                          maps/de_dust2/entities/unnamed_2_23516_69.vmdl
+
+====360====
+place_name                     BDoors
+classname                      env_cs_place
+origin                         -1040.000000 2316.000000 156.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:71
+model                          maps/de_dust2/entities/unnamed_2_23516_71.vmdl
+
+====361====
+place_name                     CTSpawn
+classname                      env_cs_place
+origin                         139.999969 2276.000000 -24.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:73
+model                          maps/de_dust2/entities/unnamed_2_23516_73.vmdl
+
+====362====
+place_name                     BDoors
+classname                      env_cs_place
+origin                         -1139.999878 2656.000000 160.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:75
+model                          maps/de_dust2/entities/unnamed_2_23516_75.vmdl
+
+====363====
+place_name                     Hole
+classname                      env_cs_place
+origin                         -1316.000000 2660.000000 216.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:77
+model                          maps/de_dust2/entities/unnamed_2_23516_77.vmdl
+
+====364====
+place_name                     BombsiteB
+classname                      env_cs_place
+origin                         -1764.000000 2192.000000 -4.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:79
+model                          maps/de_dust2/entities/unnamed_2_23516_79.vmdl
+
+====365====
+place_name                     BombsiteB
+classname                      env_cs_place
+origin                         -1748.000000 2928.000000 36.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:81
+model                          maps/de_dust2/entities/unnamed_2_23516_81.vmdl
+
+====366====
+place_name                     BombsiteB
+classname                      env_cs_place
+origin                         -1760.000000 2660.000000 36.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:83
+model                          maps/de_dust2/entities/unnamed_2_23516_83.vmdl
+
+====367====
+place_name                     UpperTunnel
+classname                      env_cs_place
+origin                         -1984.000000 1604.000000 160.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:85
+model                          maps/de_dust2/entities/unnamed_2_23516_85.vmdl
+
+====368====
+place_name                     Pit
+classname                      env_cs_place
+origin                         1360.000000 456.000000 -28.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:88
+model                          maps/de_dust2/entities/unnamed_2_23516_88.vmdl
+
+====369====
+place_name                     Side
+classname                      env_cs_place
+origin                         1684.000000 888.000000 -4.000000
+angles                         0.000000 0.000000 0.000000
+scales                         1.000000 1.000000 1.000000
+hammeruniqueid                 2:23516:90
+model                          maps/de_dust2/entities/unnamed_2_23516_90.vmdl
