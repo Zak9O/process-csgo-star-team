@@ -2,6 +2,7 @@ from pm4py.objects.log.obj import EventLog, Trace, Event
 from demoparser2 import DemoParser
 import pandas as pd
 from pandas.core.api import DataFrame
+import datetime
 
 
 class Activity:
@@ -64,22 +65,29 @@ class Parser:
 
         print(f"  Found {len(incident_intervals)} rounds with bomb planted!")
         for start, end, round in incident_intervals:
-            # There is some very weird behavoir where the same round is finished twice. 
+            # There is some very weird behavoir where the same round is finished twice.
             # I have chosen to skip it, since it is VERY rare
             # It happens in round 0 of game: "drgn-vs-ursa-m3-dust2.dem"
             if end < start:
                 print("WARNING: Weird round behavoir where end < start")
                 continue
             df = self.parser.parse_ticks(
-                ["tick", "name", "is_alive", "team_name", "last_place_name", "total_rounds_played"],
+                [
+                    "tick",
+                    "name",
+                    "is_alive",
+                    "team_name",
+                    "last_place_name",
+                    "total_rounds_played",
+                ],
                 ticks=range(start, end + 1),
             )
             events_death = self.filter_deahts(start, end)
             round_end_reason = self.get_reason(round)
             incident_parser = IncidentParser(
-                df, events_death, round_end_reason, self.decorator
+                df, events_death, round_end_reason, end + 1, self.decorator
             )
-            try: 
+            try:
                 trace = incident_parser.parse()
                 traces.extend(trace)
                 print(f"  Parsed round {round}")
@@ -124,10 +132,13 @@ class IncidentParser:
         df: pd.DataFrame,
         events_death: pd.DataFrame,
         round_end_reason: str,
+        end: int,
         decorator: Decorator,
     ) -> None:
         self.df: pd.DataFrame = df
-        self.terrorits_alive_at_begining = self.get_terrorits_alive_at_begining()
+        self.terrorits_alive_at_begining, self.ct_alive_at_begining = (
+            self.get_people_alive_at_begining()
+        )
         self.df = self.filter_ct(self.df)
         self.round_end_reason: str = round_end_reason
         self.decorator: Decorator = decorator
@@ -135,6 +146,7 @@ class IncidentParser:
 
         # Added for execution speed
         self.is_player_alive_at_begining = self.get_alive_at_begining_dict()
+        self.end = end
 
     def parse(self) -> list[Case]:
         cases: list[Case] = []
@@ -149,6 +161,9 @@ class IncidentParser:
             if self.did_player_die(player):
                 death_activity = self.get_death_activity(player)
                 df = pd.concat([df, death_activity], ignore_index=True)
+            else:
+                round_end_activity = self.get_round_end_activity()
+                df = pd.concat([df, round_end_activity], ignore_index=True)
 
             case_attributes = self.get_case_attributes(player)
 
@@ -164,15 +179,25 @@ class IncidentParser:
             "round_end_reason": self.round_end_reason,
             "name": player,
             "terrorists_alive_at_begining": self.terrorits_alive_at_begining,
+            "ct_alive_at_begining": self.ct_alive_at_begining,
         }
 
-    def get_terrorits_alive_at_begining(self) -> int:
+    def get_people_alive_at_begining(self) -> tuple[int, int]:
         start = self.df.iloc[0]["tick"]
         df = self.df[self.df["tick"] == start]
-        df = df[df["team_name"] == "TERRORIST"]
-        df = df[df["is_alive"]]
-        return len(df)
+        df_terrorits = df[df["team_name"] == "TERRORIST"]
+        df_terrorits = df_terrorits[df_terrorits["is_alive"]]
+        df_ct = df[df["team_name"] == "CT"]
+        df_ct = df_ct[df_ct["is_alive"]]
+        return len(df_terrorits), len(df_ct)
 
+    def get_round_end_activity(self) -> pd.DataFrame:
+        data = {
+            "activity_name": "RoundEnd",
+            "tick": [self.end],
+        }
+        return pd.DataFrame(data)
+    
     def get_death_activity(self, player: str) -> pd.DataFrame:
         died_at_tick = self.events_death[self.events_death["user_name"] == player][
             "tick"
@@ -218,12 +243,7 @@ class CaseParser:
     ) -> None:
         self.df: pd.DataFrame = df
         self.start = self.df.iloc[0]["tick"]
-        # TODO: This is wrong. The end tick is way later than everybody else 
-        # Probably because they get to fuck around after a game? 
-        # But then again, that should have been filtered from when the game ended
-        self.end = self.df.iloc[-1]["tick"]  # This might be weird if everybody is dead
         self.decorator: Decorator = decorator
-        self.start = self.df.iloc[0]["tick"]
         self.round = self.df.iloc[0]["total_rounds_played"]
         self.player = self.df.iloc[0]["name"]
         self.case_attributes = case_attributes
@@ -239,10 +259,10 @@ class CaseParser:
                 attributes[attr] = row[attr]
             trace.append(Activity(name, time, attributes))
 
-        trace.append(Activity("RoundEnd", self.end))
-
         case = Case(
-            self.decorator._path + str(self.round) + self.player, trace, self.case_attributes
+            self.decorator._path + str(self.round) + self.player,
+            trace,
+            self.case_attributes,
         )
         return case
 
@@ -261,7 +281,10 @@ def create_event_log(cases: list[Case]) -> EventLog:
 
             # 0.0156 seconds per tick for a 64-tick server
             # 0.0078 seconds per tick for a 128-tick server
-            event["time:seconds"] = int(activity.time * 0.0156)
+            seconds = activity.time * 0.0156
+            timestamp = datetime.datetime.fromtimestamp(seconds)
+
+            event["time:timestamp"] = timestamp.isoformat(timespec="milliseconds")
             for attr, value in activity.attributes.items():
                 event[attr] = value
 
