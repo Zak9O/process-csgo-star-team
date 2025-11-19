@@ -123,12 +123,54 @@ def AbstractXES():
                 event = Event()
                 event['concept:name'] = "No Plant" 
                 event['concept:activity'] = "Bomb_Not_Planted"
-                event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
+                event['time:tick'] = max_tick.iloc[i+1]["tick"]-2
                 event['custom:value'] = "Not_Planted"
                 trace.append(event) 
             
             
+            bombDef=parser.parse_event("bomb_defused",other=["total_rounds_played","tick"])
+            bombGang = bombDef[bombDef["total_rounds_played"] == i]
+            whoDed=parser.parse_ticks(["is_alive", "team_name"], ticks=[max_tick.iloc[i+1]["tick"]])
+            whoDedDict=whoDed.to_dict('index')
+            CTAlive=False
+            if max_tick.iloc[i+1]["winner"] =="CT":
                 
+                if len((bombGang.to_dict('index')).keys())!=0:
+                    event = Event()
+                    event['concept:name'] = "Defused by CT"
+                    event['concept:activity'] = "Win Type"
+                    event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
+                    event['custom:value'] = "Who Won"
+                    trace.append(event) 
+                else:
+                    event = Event()
+                    event['concept:name'] = "T killed"
+                    event['concept:activity'] = "Win Type"
+                    event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
+                    event['custom:value'] = "Who Won"
+                    trace.append(event) 
+            else:
+                for TD in whoDedDict:
+                        if whoDedDict[TD]["is_alive"]==True:
+                            if whoDedDict[TD]["team_name"]=="CT":
+                                CTAlive=True
+                                break
+                if CTAlive==True:
+                    event = Event()
+                    event['concept:name'] = "Bomb Exploded"
+                    event['concept:activity'] = "Win Type"
+                    event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
+                    event['custom:value'] = "Who Won"
+                    trace.append(event) 
+                else:
+                    event = Event()
+                    event['concept:name'] = "CT killed"
+                    event['concept:activity'] = "Win Type"
+                    event['time:tick'] = max_tick.iloc[i+1]["tick"]-1
+                    event['custom:value'] = "Who Won"
+                    trace.append(event) 
+                
+            
             # WINNER OF THE ROUND
             event = Event()
             event['concept:name'] = "Won by " + max_tick.iloc[i+1]["winner"]
