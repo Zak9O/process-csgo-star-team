@@ -283,10 +283,9 @@ class WorkflowLog:
         except Exception:
             raise KeyError("change self.folder_path variable, to match matches folder")
         self.parser = None
-        self.roundWinnerDict = None
         self.caseID = 0 #increments for each trace
         self.TICK_RATE = 64.0 #server tick rate
-        self.PLOTTING = True
+        self.PLOTTING = False
         self.matchNumber = 0
         self.roundNumber = 0
 
@@ -341,7 +340,7 @@ class WorkflowLog:
         self.WINDOW = self.TICK_RATE
 
         #Objective winner tuning
-        self.POINT_FOR_KILL = 25
+        self.POINT_FOR_KILL = 50
         self.DAMAGE_PER_POINT_RATIO = 1
         self.EVEN_COEFFICENT = 1.3 #if points is even by 30%, then 
         
@@ -421,7 +420,7 @@ class WorkflowLog:
                 fairness = 3 
             elif diff <= 7800:
                 fairness = 2
-            elif diff <= 12525:
+            elif diff <= 10000:
                 fairness = 1
             else: 
                 fairness = 0
@@ -735,41 +734,43 @@ class WorkflowLog:
             "totalDamage": totalDamage,
             "seconds": round((lastTick - firstTick) / self.TICK_RATE, 2),
         }
+    
     def _createLog(self, traces):
-
         log = {}
-        roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
-        for (roundNum, trace) in traces:
+        for (roundNum, trace, roundWinnerDict, roundCashSpentEvenDict) in traces:
             fairness, diff = roundCashSpentEvenDict[roundNum]
             trace_dict = {
                     "match": self.matchNumber,
                     "trace": trace,
                     "cashFairness": fairness,
                     "cashDiff": diff,
-                    "mapEventAccuracy": round((self.allFilterDataPerRound[roundNum-1]["FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"])),
-                    "winner": self.roundWinnerDict[roundNum],
-                    "isPistolRound": 1 if roundNum == 1 or roundNum == 13 else 0
+                    "mapEventAccuracy": round((self.allFilterDataPerRound[roundNum]["FRACTION_ACTIVITY_POINTS_BEFORE_AFTER"]), 2),
+                    "winner": roundWinnerDict[roundNum],
+                    "isPistolRound": 1 if roundNum == 0 or roundNum == 12 else 0
                 }
             log[self.caseID] = trace_dict
             self.caseID += 1
-
         return log
+    
+
     def createLog(self):
         traces = []
         
         for matchNumber, match_file in enumerate(self.matches):
+            print(match_file)
             self.matchNumber = matchNumber
             self.initParser(match_file)
             allEvents = self.prepareEvents(matchNumber)
             if isinstance(allEvents, str): #some event were missing
                 print(f"{allEvents} event were missing in {match_file}")
                 continue
+            
+            #matchwise
+            roundCashSpentEvenDict = self.getRoundCashSpentEvenDict(self.parser)
+            roundWinnerDict = getRoundWinnerDict(self.parser)
 
-            self.roundWinnerDict = getRoundWinnerDict(self.parser)
-        
-            for round in range(len(self.roundWinnerDict)):
+            for round in range(len(roundWinnerDict)):
                 self.roundNumber = round
-                #is fair round
                 self.totalRounds +=1 #data
 
                 #is mapping good enough
@@ -797,13 +798,9 @@ class WorkflowLog:
                         activity_dict = self.determineActivties(objective)
                         if activity_dict:
                             trace.append(activity_dict)
-
-                traces.append((round, trace))
-            break
-        
-
-
+                traces.append((round, trace, roundWinnerDict, roundCashSpentEvenDict))
         return self._createLog(traces)
+    
 def convert_to_event_log(log_dict):
     event_log = EventLog()
 
@@ -824,6 +821,8 @@ def convert_to_event_log(log_dict):
             trace.append(event)
         event_log.append(trace)
     return event_log
+
+
 def write_txt_log(log_dict, path):
     import json
     with open(path, "w", encoding="utf-8") as f:
