@@ -2,49 +2,30 @@ import pm4py
 from demoparser2.demoparser2 import DemoParser
 from pandas import DataFrame
 from pm4py.objects.log.obj import EventLog, Trace, Event
+from datetime import datetime
+
+def eventLogDictToPm4py(event_log_dict: dict[str, dict]):
+    event_log = EventLog()
+
+    for key, event_series in event_log_dict.items():
+        trace = Trace()
+        trace.attributes["concept:name"] = key
+        for key, att in event_series["attributes"].items():
+            trace.attributes[key] = att
 
 
-def eventLogDictToPm4py(event_log_dict):
-    import pandas as pd
-    from pm4py.objects.conversion.log import converter as log_converter
-
-    all_events = []
-
-    for case_id, case_data in event_log_dict.items():
-        case_attrs = case_data.get("attributes", {})
-        for event in case_data.get("events", []):
-            # choose activity: use place_name for moved_to_place when available
-            activity = event.get("concept:name")
-            if activity == "moved_to_place":
-                place = event.get("place_name")
-                if place is not None and not (isinstance(place, float) and pd.isna(place)) and str(place) != "":
-                    activity = place
-
-            event_row = {
-                "case:concept:name": case_id,
-                "concept:name": activity,
-                "time:timestamp": pd.Timestamp(event.get("time:tick"), unit="s")
-            }
-
-            # add case-level attributes (prefixed)
-            for key, value in case_attrs.items():
-                if key != "concept:name":
-                    event_row[f"case:{key}"] = value
-
-            # add event-level attributes (no prefix)
+        for event in event_series["events"]:
+            event_event = Event()
             for key, value in event.items():
-                if key in ("concept:name", "time:tick"):
+                if key == "place_name":
+                    event_event["concept:name"] = f"Moved_To_{value}"
                     continue
-                event_row[key] = value
+                else :
+                    event_event[key] = value
+            event_event["time:timestamp"] = datetime.fromtimestamp(event["time:tick"]).isoformat()
+            trace.append(event_event)
+        event_log.append(trace)
 
-            all_events.append(event_row)
-
-    df = pd.DataFrame(all_events)
-    if df.empty:
-        return df
-
-    df = df.sort_values(["case:concept:name", "time:timestamp"])
-    event_log = log_converter.apply(df, variant=log_converter.Variants.TO_EVENT_LOG)
     return event_log
 
 
