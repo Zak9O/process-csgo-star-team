@@ -15,18 +15,26 @@ def AbstractXES():
     
     Round=0
     
-    parseList=[DemoParser("heroic-vs-3dmax-m1-dust2.dem"),DemoParser("heroic-vs-3dmax-m1-dust2.dem")]
+    parseList=[DemoParser("heroic-vs-3dmax-m1-dust2.dem")
+               ,DemoParser("semperfi-vs-rooster-m2-dust2.dem")
+               ,DemoParser("monte-vs-venom-m2-dust2.dem")
+               ,DemoParser("sinners-vs-monte-m2-dust2.dem")
+               ,DemoParser("skinrave-vs-voca-m2-dust2.dem")
+               ]
+    #parseList=[DemoParser("skinrave-vs-voca-m2-dust2.dem")]
     
     for parser in parseList:
-        df = parser.parse_event("player_death", player=["last_place_name","team_name"],other=["total_rounds_played","tick"])
-        tmp1 = df.groupby(["tick","total_rounds_played","user_name","user_team_name", "attacker_name"]).size().to_frame(name='total_kills').reset_index()
-
+        #df = parser.parse_event("player_death", player=["last_place_name","team_name"],other=["total_rounds_played","tick"])
+        FB_df = parser.parse_event("player_death", player=["last_place_name","team_name"],other=["total_rounds_played","tick"])
+        tmp1 = FB_df.groupby(["tick","total_rounds_played","user_name","user_team_name", "attacker_name"]).size().to_frame(name='total_kills').reset_index()
+        print("next file")
         # implement way to split into rounds, where each round is a trace, currently everything is just one large trace
         
 
-        FB_df = parser.parse_event("player_death", player=["last_place_name","team_name"],other=["total_rounds_played","tick"])
+        
         bomb_df = parser.parse_event("bomb_planted", player=["last_place_name"],other=["total_rounds_played","tick"])
         max_tick = parser.parse_event("round_end")
+        bombDef=parser.parse_event("bomb_defused",other=["total_rounds_played","tick"])
         
         for i in range(tmp1["total_rounds_played"].max()):
             #insert first blood logic, add general location of it.
@@ -73,6 +81,7 @@ def AbstractXES():
             Bomb_Round = bomb_df[bomb_df["total_rounds_played"] == i]
             #Into a dict
             BombDict=Bomb_Round.to_dict('index')
+            bomb_planting=True
             #Extra info
             if(len(BombDict.keys())!=0):
                 for key in BombDict:
@@ -120,6 +129,7 @@ def AbstractXES():
                         
                     break
             else:
+                bomb_planting=False
                 event = Event()
                 event['concept:name'] = "No Plant" 
                 event['concept:activity'] = "Bomb_Not_Planted"
@@ -128,14 +138,19 @@ def AbstractXES():
                 trace.append(event) 
             
             
-            bombDef=parser.parse_event("bomb_defused",other=["total_rounds_played","tick"])
-            bombGang = bombDef[bombDef["total_rounds_played"] == i]
+            #print(i)
+            if len(bombDef)==0:
+                bombGangDict={}
+            else:
+                bombGang = bombDef[bombDef["total_rounds_played"] == i]
+                bombGangDict=bombGang.to_dict('index')
+            
             whoDed=parser.parse_ticks(["is_alive", "team_name"], ticks=[max_tick.iloc[i+1]["tick"]])
             whoDedDict=whoDed.to_dict('index')
             CTAlive=False
             if max_tick.iloc[i+1]["winner"] =="CT":
                 
-                if len((bombGang.to_dict('index')).keys())!=0:
+                if len(bombGangDict.keys())!=0:
                     event = Event()
                     event['concept:name'] = "Defused by CT"
                     event['concept:activity'] = "Win Type"
@@ -155,7 +170,7 @@ def AbstractXES():
                             if whoDedDict[TD]["team_name"]=="CT":
                                 CTAlive=True
                                 break
-                if CTAlive==True:
+                if CTAlive==True and bomb_planting==True:
                     event = Event()
                     event['concept:name'] = "Bomb Exploded"
                     event['concept:activity'] = "Win Type"
