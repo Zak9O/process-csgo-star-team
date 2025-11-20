@@ -3,6 +3,7 @@ from demoparser2 import DemoParser
 import pandas as pd
 from pandas.core.api import DataFrame
 import datetime
+from pathlib import Path
 
 
 class Activity:
@@ -23,24 +24,18 @@ class Case:
         self.attributes: dict[str, object] = attributes
 
 
-class Decorator:
-    def __init__(
-        self, case_attributes: list[str], activity_attributes: list[str]
-    ) -> None:
-        self.case_attributes: list[str] = case_attributes
-        self.activity_attributes: list[str] = activity_attributes
-        self._path: str
-
-    def set_path(self, path: str) -> None:
-        self._path = path
+class Attributes:
+    def __init__(self, path: str, end: int) -> None:
+        self.case_attributes: dict[str, object] = dict()
+        self.activity_attributes: dict[str, object] = dict()
+        self.end: int = end
+        self.path: str = path
 
 
 class Parser:
-    def __init__(self, path: str, decorator: Decorator) -> None:
+    def __init__(self, path: str) -> None:
         self.path: str = path
         self.parser: DemoParser = DemoParser(self.path)
-        self.decorator: Decorator = decorator
-        self.decorator.set_path(self.path)
 
         parser_attributes = ["total_rounds_played"]
         self.events_bomb_planted: pd.DataFrame = self.parser.parse_event(
@@ -55,7 +50,7 @@ class Parser:
         )
 
         self.events_death = self.parser.parse_event("player_death")
-        self.rounds = 0 
+        self.rounds = 0
         self.traces = 0
 
     def parse(self) -> list[Case]:
@@ -87,9 +82,11 @@ class Parser:
             bomb_site = self.get_bomb_site(round, df)
             events_death = self.filter_deahts(start, end)
             round_end_reason = self.get_reason(round)
-            incident_parser = IncidentParser(
-                df, events_death, round_end_reason, end + 1, self.decorator, bomb_site
-            )
+            attributes: Attributes = Attributes(self.path, end + 1)
+            attributes.case_attributes["round_end_reason"] = round_end_reason
+            attributes.case_attributes["bomb_site"] = bomb_site
+
+            incident_parser = IncidentParser(df, events_death, attributes)
             try:
                 trace = incident_parser.parse()
                 traces.extend(trace)
@@ -106,8 +103,8 @@ class Parser:
     def get_bomb_site(self, round: int, df: pd.DataFrame) -> str:
         bomb_planter = self.events_bomb_planted[
             self.events_bomb_planted["total_rounds_played"] == round
-        ].iloc[0]['user_name']
-        bomb_site = df[df['name'] == bomb_planter].iloc[0]['last_place_name']
+        ].iloc[0]["user_name"]
+        bomb_site = df[df["name"] == bomb_planter].iloc[0]["last_place_name"]
         return bomb_site
 
     def filter_deahts(self, start: int, end: int) -> pd.DataFrame:
@@ -144,24 +141,18 @@ class IncidentParser:
         self,
         df: pd.DataFrame,
         events_death: pd.DataFrame,
-        round_end_reason: str,
-        end: int,
-        decorator: Decorator,
-        bomb_site: str,
+        attributes: Attributes,
     ) -> None:
         self.df: pd.DataFrame = df
         self.terrorits_alive_at_begining, self.ct_alive_at_begining = (
             self.get_people_alive_at_begining()
         )
         self.df = self.filter_ct(self.df)
-        self.round_end_reason: str = round_end_reason
-        self.decorator: Decorator = decorator
+        self.attributes: Attributes = attributes
         self.events_death: pd.DataFrame = events_death
 
         # Added for execution speed
         self.is_player_alive_at_begining = self.get_alive_at_begining_dict()
-        self.end = end
-        self.bomb_site = bomb_site
 
     def parse(self) -> list[Case]:
         cases: list[Case] = []
@@ -180,10 +171,9 @@ class IncidentParser:
                 round_end_activity = self.get_round_end_activity()
                 df = pd.concat([df, round_end_activity], ignore_index=True)
 
-            case_attributes = self.get_case_attributes(player)
-            case_attributes['bomb_site'] = self.bomb_site
+            self.attributes.case_attributes.update(self.get_case_attributes(player))
 
-            case_parser = CaseParser(df, case_attributes, self.decorator)
+            case_parser = CaseParser(df, self.attributes)
             case = case_parser.parse()
             cases.append(case)
 
@@ -191,11 +181,16 @@ class IncidentParser:
 
     def get_case_attributes(self, player: str) -> dict[str, object]:
         # TODO: Incorporate other attributes from decorator
+        if self.ct_alive_at_begining <= self.terrorits_alive_at_begining:
+            advantage = "T"
+        else:
+            advantage = "CT"
         return {
-            "round_end_reason": self.round_end_reason,
             "name": player,
             "terrorists_alive_at_begining": self.terrorits_alive_at_begining,
             "ct_alive_at_begining": self.ct_alive_at_begining,
+            "T_CT_alive_ratio": f"{self.terrorits_alive_at_begining}:{self.ct_alive_at_begining}",
+            "advantage": advantage,
         }
 
     def get_people_alive_at_begining(self) -> tuple[int, int]:
@@ -210,7 +205,7 @@ class IncidentParser:
     def get_round_end_activity(self) -> pd.DataFrame:
         data = {
             "activity_name": "RoundEnd",
-            "tick": [self.end],
+            "tick": [self.attributes.end],
         }
         return pd.DataFrame(data)
 
@@ -255,14 +250,15 @@ class IncidentParser:
 
 class CaseParser:
     def __init__(
-        self, df: pd.DataFrame, case_attributes: dict[str, object], decorator: Decorator
+        self,
+        df: pd.DataFrame,
+        decorator: Attributes,
     ) -> None:
         self.df: pd.DataFrame = df
         self.start = self.df.iloc[0]["tick"]
-        self.decorator: Decorator = decorator
+        self.decorator: Attributes = decorator
         self.round = self.df.iloc[0]["total_rounds_played"]
         self.player = self.df.iloc[0]["name"]
-        self.case_attributes = case_attributes
 
     def parse(self) -> Case:
         trace: list[Activity] = []
@@ -275,35 +271,40 @@ class CaseParser:
                 attributes[attr] = row[attr]
             trace.append(Activity(name, time, attributes))
 
+        p = Path(self.decorator.path)
+
         case = Case(
-            self.decorator._path + str(self.round) + self.player,
+            '-'.join(p.name.split('-')[:3]) + '-' + str(self.round) + '-' + self.player,
             trace,
-            self.case_attributes,
+            self.decorator.case_attributes,
         )
         return case
 
 
-def create_event_log(cases: list[Case]) -> EventLog:
+def create_event_log(cases: list[Case], add_case_attr_to_activity: bool) -> EventLog:
     event_log = EventLog()
     event_log.attributes["concept:name"] = "csgo_demo_log"
     for case in cases:
         trace = Trace()
         trace.attributes["concept:name"] = case.name
-        for attr, value in case.attributes.items():
-            trace.attributes[attr] = value
+        if not add_case_attr_to_activity:
+            for attr, value in case.attributes.items():
+                trace.attributes[attr] = value
         for activity in case.trace:
             event = Event()
             event["concept:name"] = activity.name
 
             # 0.0156 seconds per tick for a 64-tick server
-            # 0.0078 seconds per tick for a 128-tick server
             seconds = activity.time * 0.0156
             timestamp = datetime.datetime.fromtimestamp(seconds)
 
             event["time:timestamp"] = timestamp.isoformat(timespec="milliseconds")
-            for attr, value in activity.attributes.items():
-                event[attr] = value
-            for attr, value in case.attributes.items():
+            if add_case_attr_to_activity:
+                attr = activity.attributes | case.attributes
+            else:
+                attr = activity.attributes
+
+            for attr, value in attr.items():
                 event[attr] = value
 
             trace.append(event)

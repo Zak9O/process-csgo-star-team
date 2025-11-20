@@ -1,27 +1,14 @@
 import parser
 import pm4py
-from parser import Parser, Decorator
+from parser import Parser
 import re
-import pandas as pd
 
-data = {
-    "activity_name": "PlayerDied",
-    "tick": [233],
-}
-pd.DataFrame(data)
-
-data = {
-    "activity_name": "RoundEnd",
-    "tick": [123123],
-}
-pd.DataFrame(data)
-
-parser_ = Parser("./Heroric_Dust2_demos/lp-vs-kru-m1-dust2.dem", Decorator([], []))
+parser_ = Parser("./Heroric_Dust2_demos/lp-vs-kru-m1-dust2.dem")
 out = parser_.parse()
 
-event_log = parser.create_event_log(out)
+event_log = parser.create_event_log(out, True)
 
-log_file_path = "./logs/test.xes"
+log_file_path = "./logs/single-file.xes"
 
 pm4py.write_xes(event_log, log_file_path)
 
